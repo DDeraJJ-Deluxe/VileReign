@@ -6,12 +6,18 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour {
 
     public float walkSpeed = 8f;  // Player walk speed
+
+    /* Variable jumps */
     public float buttonTime = 0.5f; // Limit of jump button pressed
     public float jumpHeight = 4.5f; // Max height of jump
     public float cancelRate = 100; // For jump-cancelling
     float jumpTime; // Store time during jump
     bool jumping; // Flag for jumping
     bool jumpCancelled; // Flag for jump cancel
+
+    /* Double jumps */
+    public int jumpCount = 0;
+    public bool unlockedDoubleJump = false; // If false, only one jump allowed
 
     Rigidbody2D rb; // Reference to player's rigidbody
     Collider2D coll; // Reference to player's collider object
@@ -40,12 +46,15 @@ public class PlayerController : MonoBehaviour {
     }
 
     void JumpHandler() { 
-        if (Input.GetKeyDown(KeyCode.Space) && CheckGrounded()) {
-            float jumpForce = Mathf.Sqrt(jumpHeight * -2 * (Physics2D.gravity.y * rb.gravityScale));
-            rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
-            jumping = true;
-            jumpCancelled = false;
-            jumpTime = 0;
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            if ((!unlockedDoubleJump && CheckGrounded()) ^ (unlockedDoubleJump && (jumpCount < 2 || CheckGrounded()))) { // Allow for up to 2 jumps
+                float jumpForce = Mathf.Sqrt(jumpHeight * -2 * (Physics2D.gravity.y * rb.gravityScale));
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+                jumping = true;
+                jumpCancelled = false;
+                jumpTime = 0;
+                jumpCount++;
+            }
         }
         if (jumping) {
             jumpTime += Time.deltaTime;
@@ -74,6 +83,7 @@ public class PlayerController : MonoBehaviour {
         // Check if any of the overlapping colliders are considered as ground
         foreach (Collider2D collider in colliders) {
             if (collider.gameObject != gameObject && (collider.gameObject.layer == LayerMask.NameToLayer("Ground") || collider.gameObject.layer == LayerMask.NameToLayer("Platform"))) {
+                jumpCount = 0;
                 return true;
             }
         }
