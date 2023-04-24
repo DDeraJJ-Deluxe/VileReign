@@ -16,8 +16,13 @@ public class PlayerController : MonoBehaviour {
     bool jumpCancelled; // Flag for jump cancel
 
     /* Double jumps */
-    public int jumpCount = 0;
+    private int jumpCount = 0;
     public bool unlockedDoubleJump = false; // If false, only one jump allowed
+
+    public LayerMask groundLayer;
+    private bool isGrounded;
+    public Transform feetPosition;
+    public float groundCheckCircle;
 
     Rigidbody2D rb; // Reference to player's rigidbody
     Collider2D coll; // Reference to player's collider object
@@ -47,7 +52,11 @@ public class PlayerController : MonoBehaviour {
 
     void JumpHandler() { 
         if (Input.GetKeyDown(KeyCode.Space)) {
-            if ((!unlockedDoubleJump && CheckGrounded()) ^ (unlockedDoubleJump && (jumpCount < 2 || CheckGrounded()))) { // Allow for up to 2 jumps
+            isGrounded = Physics2D.OverlapCircle(feetPosition.position, groundCheckCircle, groundLayer);
+            if (isGrounded) {
+                jumpCount = 0;
+            }
+            if ((!unlockedDoubleJump && isGrounded) ^ (unlockedDoubleJump && (jumpCount < 2 || isGrounded))) { // Allow for up to 2 jumps
                 float jumpForce = Mathf.Sqrt(jumpHeight * -2 * (Physics2D.gravity.y * rb.gravityScale));
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 jumping = true;
@@ -68,27 +77,9 @@ public class PlayerController : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        if(jumpCancelled && jumping && rb.velocity.y > 0) {
+        if (jumpCancelled && jumping && rb.velocity.y > 0) {
             rb.AddForce(Vector2.down * cancelRate);
         }
-    }
-
-    bool CheckGrounded() { 
-        // Create a circle collider at the player's feet
-        Vector2 boxSize = new Vector2(coll.bounds.size.x - 0.1f, 0.05f); // Set the size of the overlap box to be slightly smaller than the player's collider
-        Vector2 boxCenter = new Vector2(transform.position.x, transform.position.y - coll.bounds.extents.y); // Set the center of the overlap box to be just below the player's collider
-
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(boxCenter, boxSize, 0); // Check for overlapping colliders
-
-        // Check if any of the overlapping colliders are considered as ground
-        foreach (Collider2D collider in colliders) {
-            if (collider.gameObject != gameObject && (collider.gameObject.layer == LayerMask.NameToLayer("Ground") || collider.gameObject.layer == LayerMask.NameToLayer("Platform"))) {
-                jumpCount = 0;
-                return true;
-            }
-        }
-
-        return false;
     }
 
     void OnTriggerEnter2D(Collider2D collider) { 
