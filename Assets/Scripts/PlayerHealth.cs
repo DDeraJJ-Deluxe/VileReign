@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour {
     
@@ -9,6 +10,12 @@ public class PlayerHealth : MonoBehaviour {
 
     void Start() {
         health = maxHealth;
+    }
+
+    void Update() {
+        if (gameObject.transform.position.y < -7 ){
+            SceneManager.LoadScene("SampleScene");
+        }
     }
 
     public void TakeDamage(int damage) {
