@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour {
 
@@ -28,13 +29,15 @@ public class PlayerController : MonoBehaviour {
     /* Dodging */
     private bool dodging = false;
     private float dodgeTimeRemaining = 0f;
-    public float dodgeDuration = 0.25f;
+    public float dodgeDuration = 0.125f;
     public float dodgeSpeed = 28f;
     private bool isFacingRight = true;
+    private bool isInvincible = false;
 
     Rigidbody2D rb; // Reference to player's rigidbody
     Collider2D coll; // Reference to player's collider object
-    SpriteRenderer sr; // Reference to player's sprite renderer
+    public SpriteRenderer sr; // Reference to player's sprite renderer
+    public Animator animator;
 
     public Camera mainCamera; // Reference to the main camera
 
@@ -48,7 +51,7 @@ public class PlayerController : MonoBehaviour {
         WalkHandler(); // Handle player walking
         JumpHandler(); // Handle player jumping
 
-        Vector3 cameraPosition = new Vector3(transform.position.x, 2.1f, -10f); // Adjust camera position
+        Vector3 cameraPosition = new Vector3(transform.position.x, -5f, -10f); // Adjust camera position
         mainCamera.transform.position = cameraPosition;
 
         if (Input.GetKeyDown(KeyCode.LeftShift)) { // If left shift key is pressed while moving horizontally
@@ -56,11 +59,20 @@ public class PlayerController : MonoBehaviour {
             dodgeTimeRemaining = dodgeDuration;
             StartCoroutine(FadeOutIn(dodgeDuration));
         }
+
+        if (Input.GetKeyDown(KeyCode.Mouse0) && !dodging) {
+            animator.SetTrigger("Attack");
+        }
     }
 
     void WalkHandler() {
         float horizontalInput = Input.GetAxisRaw("Horizontal"); // Input on horizontal axis
-
+        animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
+        if (horizontalInput < 0) {
+            sr.flipX = true;
+        } else if (horizontalInput > 0) {
+            sr.flipX = false;
+        }
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) {
             isFacingRight = true;
         }
@@ -69,12 +81,14 @@ public class PlayerController : MonoBehaviour {
         }
 
         if (dodging) {
-            if (isFacingRight) {
+            isInvincible = true;
+            if (isFacingRight) { 
                 rb.velocity = new Vector2(-dodgeSpeed, rb.velocity.y); // Apply dodge speed to player if dodging
             } else {
                 rb.velocity = new Vector2(dodgeSpeed, rb.velocity.y);
             }
         } else {
+            isInvincible = false;
             Vector2 velocity = new Vector2(horizontalInput * walkSpeed, rb.velocity.y); // Calculate player's velocity based on input and walk speed
             rb.velocity = velocity; // Apply velocity to player's rigidbody
         }
@@ -94,6 +108,7 @@ public class PlayerController : MonoBehaviour {
                 jumpCount = 0;
             }
             if ((!unlockedDoubleJump && isGrounded) ^ (unlockedDoubleJump && (jumpCount < 2 || isGrounded))) { // Allow for up to 2 jumps if unlocked
+                animator.SetBool("isJumping", true);
                 float jumpForce = Mathf.Sqrt(jumpHeight * -2 * (Physics2D.gravity.y * rb.gravityScale));
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 jumping = true;
@@ -105,9 +120,11 @@ public class PlayerController : MonoBehaviour {
         if (jumping) {
             jumpTime += Time.deltaTime;
             if (Input.GetKeyUp(KeyCode.Space)) {
+                animator.SetBool("isJumping", false);
                 jumpCancelled = true;
             }
             if (jumpTime > buttonTime) {
+                animator.SetBool("isJumping", false);
                 jumping = false;
             }
         }

@@ -8,6 +8,8 @@ public class PlayerHealth : MonoBehaviour {
     public int maxHealth = 100;
     public int health;
 
+    public Animator animator;
+
     public HealthBar healthBar;
 
     void Start() {
@@ -26,7 +28,7 @@ public class PlayerHealth : MonoBehaviour {
 
         healthBar.SetHealth(health);
         if (health <= 0) {
-            Destroy(gameObject);
+            animator.SetBool("isDead", true);
         }
     }
 }
