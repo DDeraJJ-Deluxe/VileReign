@@ -5,11 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour {
     
-    public int maxHealth = 10;
+    public int maxHealth = 100;
     public int health;
+
+    public HealthBar healthBar;
 
     void Start() {
         health = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     void Update() {
@@ -20,6 +23,8 @@ public class PlayerHealth : MonoBehaviour {
 
     public void TakeDamage(int damage) {
         health -= damage;
+
+        healthBar.SetHealth(health);
         if (health <= 0) {
             Destroy(gameObject);
         }
