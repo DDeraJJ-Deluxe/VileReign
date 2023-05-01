@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour {
     private float dodgeTimeRemaining = 0f;
     public float dodgeDuration = 0.25f;
     public float dodgeSpeed = 28f;
+    private bool isFacingRight = true;
 
     Rigidbody2D rb; // Reference to player's rigidbody
     Collider2D coll; // Reference to player's collider object
@@ -50,7 +51,7 @@ public class PlayerController : MonoBehaviour {
         Vector3 cameraPosition = new Vector3(transform.position.x, 2.1f, -10f); // Adjust camera position
         mainCamera.transform.position = cameraPosition;
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && Input.GetAxisRaw("Horizontal") != 0) { // If left shift key is pressed while moving horizontally
+        if (Input.GetKeyDown(KeyCode.LeftShift)) { // If left shift key is pressed while moving horizontally
             dodging = true;
             dodgeTimeRemaining = dodgeDuration;
             StartCoroutine(FadeOutIn(dodgeDuration));
@@ -60,8 +61,19 @@ public class PlayerController : MonoBehaviour {
     void WalkHandler() {
         float horizontalInput = Input.GetAxisRaw("Horizontal"); // Input on horizontal axis
 
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) {
+            isFacingRight = true;
+        }
+        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) {
+            isFacingRight = false;
+        }
+
         if (dodging) {
-            rb.velocity = new Vector2(-horizontalInput * dodgeSpeed, rb.velocity.y); // Apply dodge speed to player if dodging
+            if (isFacingRight) {
+                rb.velocity = new Vector2(-dodgeSpeed, rb.velocity.y); // Apply dodge speed to player if dodging
+            } else {
+                rb.velocity = new Vector2(dodgeSpeed, rb.velocity.y);
+            }
         } else {
             Vector2 velocity = new Vector2(horizontalInput * walkSpeed, rb.velocity.y); // Calculate player's velocity based on input and walk speed
             rb.velocity = velocity; // Apply velocity to player's rigidbody
