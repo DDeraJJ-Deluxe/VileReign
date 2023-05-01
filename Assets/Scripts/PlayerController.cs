@@ -30,9 +30,19 @@ public class PlayerController : MonoBehaviour {
     private bool dodging = false;
     private float dodgeTimeRemaining = 0f;
     public float dodgeDuration = 0.125f;
-    public float dodgeSpeed = 28f;
+    public float dodgeSpeed = 24f;
+    public float dodgeRate = 1.5f;
+    float nextDodgeTime = 0f;
     private bool isFacingRight = true;
     private bool isInvincible = false;
+
+    /* Attack */
+    public Transform attackPoint;
+    public LayerMask enemyLayers;
+    public float attackRange = 0.4f;
+    public int attackDamage = 20;
+    public float attackRate = 2f;
+    float nextAttackTime = 0f;
 
     Rigidbody2D rb; // Reference to player's rigidbody
     Collider2D coll; // Reference to player's collider object
@@ -54,30 +64,31 @@ public class PlayerController : MonoBehaviour {
         Vector3 cameraPosition = new Vector3(transform.position.x, -5f, -10f); // Adjust camera position
         mainCamera.transform.position = cameraPosition;
 
-        if (Input.GetKeyDown(KeyCode.LeftShift)) { // If left shift key is pressed while moving horizontally
-            dodging = true;
-            dodgeTimeRemaining = dodgeDuration;
-            StartCoroutine(FadeOutIn(dodgeDuration));
+        if (Time.time >= nextDodgeTime) {
+            if (Input.GetKeyDown(KeyCode.LeftShift)) { // If left shift key is pressed while moving horizontally
+                dodging = true;
+                dodgeTimeRemaining = dodgeDuration;
+                StartCoroutine(FadeOutIn(dodgeDuration));
+                nextDodgeTime = Time.time + 1f / dodgeRate;
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && !dodging) {
-            animator.SetTrigger("Attack");
+        if (Time.time >= nextAttackTime) {
+            if (Input.GetKeyDown(KeyCode.Mouse0) && !dodging) {
+                Attack();
+                nextAttackTime = Time.time + 1f / attackRate;
+            }
         }
     }
 
     void WalkHandler() {
         float horizontalInput = Input.GetAxisRaw("Horizontal"); // Input on horizontal axis
         animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
-        if (horizontalInput < 0) {
-            sr.flipX = true;
-        } else if (horizontalInput > 0) {
-            sr.flipX = false;
+        if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) && !isFacingRight) {
+            Flip();
         }
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) {
-            isFacingRight = true;
-        }
-        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) {
-            isFacingRight = false;
+        else if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) && isFacingRight) {
+            Flip();
         }
 
         if (dodging) {
@@ -133,6 +144,28 @@ public class PlayerController : MonoBehaviour {
     private void FixedUpdate() {
         if (jumpCancelled && jumping && rb.velocity.y > 0) {
             rb.AddForce(Vector2.down * cancelRate);
+        }
+    }
+
+    void Flip() {
+        isFacingRight = !isFacingRight;
+
+        Vector3 currentScale = transform.localScale;
+
+        // Invert the x-axis scale to flip the object
+        currentScale.x *= -1;
+
+        // Update the object's scale with the flipped value
+        transform.localScale = currentScale;
+    }
+
+    void Attack() {
+        animator.SetTrigger("Attack");
+
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+        foreach(Collider2D enemy in hitEnemies) {
+            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
         }
     }
 
