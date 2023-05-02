@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Zombie : MonoBehaviour
 {
     public Animator animator;
 
-    public int maxHealth = 100;
+    public int maxHealth = 80;
     int currentHealth;
     public HealthBar healthBar;
 
-    public float moveSpeed;
+    public float moveSpeed = 2.8f;
 
     public Transform playerTransform;
     public bool isChasing;
@@ -18,9 +18,9 @@ public class Enemy : MonoBehaviour
 
     public Transform attackPoint;
     public LayerMask playerLayer;
-    public float attackRange = 0.4f;
-    public int attackDamage = 12;
-    public float attackRate = 1.5f;
+    public float attackRange = 0.3f;
+    public int attackDamage = 8;
+    public float attackRate = 1f;
     float nextAttackTime = 0f;
 
     void Start()
@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
 
     void Update() {
         if (isChasing) {
-            animator.SetFloat("Speed", Mathf.Abs(Input.GetAxisRaw("Horizontal")));
+            animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
             if (transform.position.x > playerTransform.position.x) {
                 transform.localScale = new Vector3(6.26492f, 6.26492f, 6.26492f);
                 transform.position += Vector3.left * moveSpeed * Time.deltaTime;
@@ -64,8 +64,9 @@ public class Enemy : MonoBehaviour
                 animator.SetFloat("Speed", 0);
             }
 
-            if (distanceToPlayer < 1f) {
+            if (distanceToPlayer < 2f) {
                 if (Time.time >= nextAttackTime) {
+                    animator.SetTrigger("Attack");
                     Attack();
                     nextAttackTime = Time.time + 1f / attackRate;
                 }

@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour {
         WalkHandler(); // Handle player walking
         JumpHandler(); // Handle player jumping
 
-        Vector3 cameraPosition = new Vector3(transform.position.x, -5f, -10f); // Adjust camera position
+        Vector3 cameraPosition = new Vector3(transform.position.x, transform.position.y, -20f); // Adjust camera position
         mainCamera.transform.position = cameraPosition;
 
         if (Time.time >= nextDodgeTime) {
@@ -167,7 +167,12 @@ public class PlayerController : MonoBehaviour {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach(Collider2D enemy in hitEnemies) {
-            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
+            if (enemy.GetComponent<Skeleton>() != null) {
+                enemy.GetComponent<Skeleton>().TakeDamage(attackDamage);
+            }
+            if (enemy.GetComponent<Zombie>() != null) {
+                enemy.GetComponent<Zombie>().TakeDamage(attackDamage);
+            }
         }
     }
 
