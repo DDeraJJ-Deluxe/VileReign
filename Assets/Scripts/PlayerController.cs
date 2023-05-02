@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour {
     private int jumpCount = 0;
     public bool unlockedDoubleJump = false; // If false, only one jump allowed
 
+    public bool unlockedSwordBeam = false;
+
     /* For checking if player is grounded */
     public LayerMask groundLayer;
     private bool isGrounded;
@@ -27,13 +29,13 @@ public class PlayerController : MonoBehaviour {
     public float groundCheckCircle;
 
     /* Dodging */
-    private bool dodging = false;
+    public bool dodging = false;
     private float dodgeTimeRemaining = 0f;
     public float dodgeDuration = 0.125f;
     public float dodgeSpeed = 24f;
     public float dodgeRate = 1.5f;
     float nextDodgeTime = 0f;
-    private bool isFacingRight = true;
+    public bool isFacingRight = true;
     public bool isInvincible = false;
 
     /* Attack */
@@ -42,7 +44,7 @@ public class PlayerController : MonoBehaviour {
     public float attackRange = 0.4f;
     public int attackDamage = 20;
     public float attackRate = 2f;
-    float nextAttackTime = 0f;
+    public float nextAttackTime = 0f;
 
     Rigidbody2D rb; // Reference to player's rigidbody
     Collider2D coll; // Reference to player's collider object

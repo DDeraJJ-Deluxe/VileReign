@@ -215,7 +215,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &56078714
 Transform:
@@ -21531,7 +21531,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 67236338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.046, y: -0.101, z: 0}
+  m_LocalPosition: {x: -0.041, y: -0.081, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21553,7 +21553,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!156049354 &92636502
 Grid:
@@ -21706,9 +21706,11 @@ MonoBehaviour:
     m_Bits: 64
   feetPosition: {fileID: 723114821}
   groundCheckCircle: 0.3
+  dodging: 0
   dodgeDuration: 0.1
   dodgeSpeed: 24
   dodgeRate: 1.5
+  isFacingRight: 1
   isInvincible: 0
   attackPoint: {fileID: 1529454669}
   enemyLayers:
@@ -21717,6 +21719,7 @@ MonoBehaviour:
   attackRange: 0.4
   attackDamage: 20
   attackRate: 2
+  nextAttackTime: 0
   sr: {fileID: 241801293}
   animator: {fileID: 241801292}
   mainCamera: {fileID: 519420031}
@@ -21782,6 +21785,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.09883105, y: 0.17900658}
   m_EdgeRadius: 0
+--- !u!114 &241801297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241801287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eaea9dd3ec4d7c4da1315fee2d677dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 6600545359477323178, guid: cdf7670a4b968db4393f89aa4c6a952d, type: 3}
+  launchPoint: {fileID: 630153891}
+  playerController: {fileID: 241801289}
 --- !u!1001 &270730851
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22123,6 +22141,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &630153890
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 630153891}
+  m_Layer: 7
+  m_Name: LaunchPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &630153891
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630153890}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.151, y: -0.019, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 241801294}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &663174627
 GameObject:
   m_ObjectHideFlags: 0
@@ -22429,6 +22478,10 @@ PrefabInstance:
     - target: {fileID: 3925343047389631363, guid: 42ed3e9dc079c7642a1d9145a7d7fce0, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3925343047389631363, guid: 42ed3e9dc079c7642a1d9145a7d7fce0, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 4501267755979773983, guid: 42ed3e9dc079c7642a1d9145a7d7fce0, type: 3}
       propertyPath: m_RootOrder
@@ -22831,7 +22884,7 @@ GameObject:
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1285814162
 Transform:
@@ -33198,7 +33251,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   attackRange: 0.4
-  attackDamage: 8
+  attackDamage: 4
   attackRate: 0.75
 --- !u!1 &2024505419
 GameObject:
@@ -33216,7 +33269,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2024505420
 Transform:
@@ -33836,7 +33889,7 @@ MonoBehaviour:
   attackPoint: {fileID: 67236339}
   playerLayer:
     serializedVersion: 2
-    m_Bits: 0
-  attackRange: 0.3
-  attackDamage: 8
+    m_Bits: 128
+  attackRange: 0.4
+  attackDamage: 4
   attackRate: 1

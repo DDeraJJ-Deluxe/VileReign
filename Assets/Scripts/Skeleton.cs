@@ -40,6 +40,7 @@ public class Skeleton : MonoBehaviour
     void Die() {
         animator.SetBool("isDead", true);
         GetComponent<Rigidbody2D>().isKinematic = true;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
         healthBar.gameObject.SetActive(false);
@@ -64,7 +65,7 @@ public class Skeleton : MonoBehaviour
                 animator.SetFloat("Speed", 0);
             }
 
-            if (distanceToPlayer < 1f) {
+            if (distanceToPlayer <= 1f) {
                 if (Time.time >= nextAttackTime) {
                     Attack();
                     nextAttackTime = Time.time + 1f / attackRate;
@@ -77,7 +78,7 @@ public class Skeleton : MonoBehaviour
         }
     }
 
-    void Attack() {
+    public void Attack() {
         StartCoroutine(DelayForDamage());
         animator.SetTrigger("Attack");
     }
