@@ -13,11 +13,11 @@ TagManager:
   - PlayersEnemies
   - Water
   - UI
-  - Ground
   - Player
+  - Ground
+  - Stairs
   - Platform
   - Decoration
-  - 
   - 
   - 
   - 
