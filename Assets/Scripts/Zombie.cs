@@ -84,11 +84,12 @@ public class Zombie : MonoBehaviour
     }
  
     private IEnumerator DelayForDamage() {
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.4f);
         Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
 
         foreach(Collider2D player in hitPlayer) {
             player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
         }
+        animator.ResetTrigger("Attack");
     }
 }
