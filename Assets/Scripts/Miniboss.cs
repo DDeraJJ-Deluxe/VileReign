@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour {
+public class Miniboss : MonoBehaviour {
 
     public int damage;
     public PlayerHealth playerHealth;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour {
 
@@ -28,13 +29,25 @@ public class PlayerController : MonoBehaviour {
     /* Dodging */
     private bool dodging = false;
     private float dodgeTimeRemaining = 0f;
-    public float dodgeDuration = 0.25f;
-    public float dodgeSpeed = 28f;
+    public float dodgeDuration = 0.125f;
+    public float dodgeSpeed = 24f;
+    public float dodgeRate = 1.5f;
+    float nextDodgeTime = 0f;
     private bool isFacingRight = true;
+    private bool isInvincible = false;
+
+    /* Attack */
+    public Transform attackPoint;
+    public LayerMask enemyLayers;
+    public float attackRange = 0.4f;
+    public int attackDamage = 20;
+    public float attackRate = 2f;
+    float nextAttackTime = 0f;
 
     Rigidbody2D rb; // Reference to player's rigidbody
     Collider2D coll; // Reference to player's collider object
-    SpriteRenderer sr; // Reference to player's sprite renderer
+    public SpriteRenderer sr; // Reference to player's sprite renderer
+    public Animator animator;
 
     public Camera mainCamera; // Reference to the main camera
 
@@ -48,33 +61,45 @@ public class PlayerController : MonoBehaviour {
         WalkHandler(); // Handle player walking
         JumpHandler(); // Handle player jumping
 
-        Vector3 cameraPosition = new Vector3(transform.position.x, 2.1f, -10f); // Adjust camera position
+        Vector3 cameraPosition = new Vector3(transform.position.x, -5f, -10f); // Adjust camera position
         mainCamera.transform.position = cameraPosition;
 
-        if (Input.GetKeyDown(KeyCode.LeftShift)) { // If left shift key is pressed while moving horizontally
-            dodging = true;
-            dodgeTimeRemaining = dodgeDuration;
-            StartCoroutine(FadeOutIn(dodgeDuration));
+        if (Time.time >= nextDodgeTime) {
+            if (Input.GetKeyDown(KeyCode.LeftShift)) { // If left shift key is pressed while moving horizontally
+                dodging = true;
+                dodgeTimeRemaining = dodgeDuration;
+                StartCoroutine(FadeOutIn(dodgeDuration));
+                nextDodgeTime = Time.time + 1f / dodgeRate;
+            }
+        }
+
+        if (Time.time >= nextAttackTime) {
+            if (Input.GetKeyDown(KeyCode.Mouse0) && !dodging) {
+                Attack();
+                nextAttackTime = Time.time + 1f / attackRate;
+            }
         }
     }
 
     void WalkHandler() {
         float horizontalInput = Input.GetAxisRaw("Horizontal"); // Input on horizontal axis
-
-        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) {
-            isFacingRight = true;
+        animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
+        if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) && !isFacingRight) {
+            Flip();
         }
-        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) {
-            isFacingRight = false;
+        else if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) && isFacingRight) {
+            Flip();
         }
 
         if (dodging) {
-            if (isFacingRight) {
+            isInvincible = true;
+            if (isFacingRight) { 
                 rb.velocity = new Vector2(-dodgeSpeed, rb.velocity.y); // Apply dodge speed to player if dodging
             } else {
                 rb.velocity = new Vector2(dodgeSpeed, rb.velocity.y);
             }
         } else {
+            isInvincible = false;
             Vector2 velocity = new Vector2(horizontalInput * walkSpeed, rb.velocity.y); // Calculate player's velocity based on input and walk speed
             rb.velocity = velocity; // Apply velocity to player's rigidbody
         }
@@ -94,6 +119,7 @@ public class PlayerController : MonoBehaviour {
                 jumpCount = 0;
             }
             if ((!unlockedDoubleJump && isGrounded) ^ (unlockedDoubleJump && (jumpCount < 2 || isGrounded))) { // Allow for up to 2 jumps if unlocked
+                animator.SetBool("isJumping", true);
                 float jumpForce = Mathf.Sqrt(jumpHeight * -2 * (Physics2D.gravity.y * rb.gravityScale));
                 rb.velocity = new Vector2(rb.velocity.x, jumpForce);
                 jumping = true;
@@ -105,9 +131,11 @@ public class PlayerController : MonoBehaviour {
         if (jumping) {
             jumpTime += Time.deltaTime;
             if (Input.GetKeyUp(KeyCode.Space)) {
+                animator.SetBool("isJumping", false);
                 jumpCancelled = true;
             }
             if (jumpTime > buttonTime) {
+                animator.SetBool("isJumping", false);
                 jumping = false;
             }
         }
@@ -116,6 +144,28 @@ public class PlayerController : MonoBehaviour {
     private void FixedUpdate() {
         if (jumpCancelled && jumping && rb.velocity.y > 0) {
             rb.AddForce(Vector2.down * cancelRate);
+        }
+    }
+
+    void Flip() {
+        isFacingRight = !isFacingRight;
+
+        Vector3 currentScale = transform.localScale;
+
+        // Invert the x-axis scale to flip the object
+        currentScale.x *= -1;
+
+        // Update the object's scale with the flipped value
+        transform.localScale = currentScale;
+    }
+
+    void Attack() {
+        animator.SetTrigger("Attack");
+
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+        foreach(Collider2D enemy in hitEnemies) {
+            enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
         }
     }
 
