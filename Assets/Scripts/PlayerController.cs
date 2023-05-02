@@ -46,6 +46,8 @@ public class PlayerController : MonoBehaviour {
     public float attackRate = 2f;
     public float nextAttackTime = 0f;
 
+    public ProjectileLaunch projectileLaunch;
+
     Rigidbody2D rb; // Reference to player's rigidbody
     Collider2D coll; // Reference to player's collider object
     public SpriteRenderer sr; // Reference to player's sprite renderer
@@ -78,6 +80,7 @@ public class PlayerController : MonoBehaviour {
         if (Time.time >= nextAttackTime) {
             if (Input.GetKeyDown(KeyCode.Mouse0) && !dodging) {
                 Attack();
+                projectileLaunch.Attack();
                 nextAttackTime = Time.time + 1f / attackRate;
             }
         }

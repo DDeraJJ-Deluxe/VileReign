@@ -21701,6 +21701,7 @@ MonoBehaviour:
   jumpHeight: 3
   cancelRate: 100
   unlockedDoubleJump: 0
+  unlockedSwordBeam: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -21720,6 +21721,7 @@ MonoBehaviour:
   attackDamage: 20
   attackRate: 2
   nextAttackTime: 0
+  projectileLaunch: {fileID: 241801297}
   sr: {fileID: 241801293}
   animator: {fileID: 241801292}
   mainCamera: {fileID: 519420031}

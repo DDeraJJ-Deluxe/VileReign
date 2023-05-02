@@ -13,11 +13,9 @@ public class ProjectileLaunch : MonoBehaviour
     }   
 
     // Update is called once per frame
-    void Update() {
-        if (Time.time >= playerController.nextAttackTime) {
-            if (Input.GetButtonDown("Fire1")  && !playerController.dodging && playerController.unlockedSwordBeam) {
-                StartCoroutine(DelayForAttack());
-            }
+    public void Attack() {
+        if (playerController.unlockedSwordBeam) {
+            StartCoroutine(DelayForAttack());
         }
     }
 
