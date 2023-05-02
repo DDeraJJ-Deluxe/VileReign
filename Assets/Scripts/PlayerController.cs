@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour {
     public float dodgeRate = 1.5f;
     float nextDodgeTime = 0f;
     private bool isFacingRight = true;
-    private bool isInvincible = false;
+    public bool isInvincible = false;
 
     /* Attack */
     public Transform attackPoint;
@@ -92,14 +92,12 @@ public class PlayerController : MonoBehaviour {
         }
 
         if (dodging) {
-            isInvincible = true;
             if (isFacingRight) { 
                 rb.velocity = new Vector2(-dodgeSpeed, rb.velocity.y); // Apply dodge speed to player if dodging
             } else {
                 rb.velocity = new Vector2(dodgeSpeed, rb.velocity.y);
             }
         } else {
-            isInvincible = false;
             Vector2 velocity = new Vector2(horizontalInput * walkSpeed, rb.velocity.y); // Calculate player's velocity based on input and walk speed
             rb.velocity = velocity; // Apply velocity to player's rigidbody
         }
@@ -160,8 +158,12 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Attack() {
+        StartCoroutine(DelayForDamage());
         animator.SetTrigger("Attack");
+    }
 
+    private IEnumerator DelayForDamage() {
+        yield return new WaitForSeconds(0.25f);
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach(Collider2D enemy in hitEnemies) {
@@ -175,6 +177,7 @@ public class PlayerController : MonoBehaviour {
 
     /* Fades out and in for a given duration */
     IEnumerator FadeOutIn(float duration) {
+        isInvincible = true;
         float fadeOutDuration = duration / 2f; // Divide the total duration in half to get the time to fade out and back in
         float alpha = 1f;
         while (alpha > 0.5f) // Fade out
@@ -200,5 +203,6 @@ public class PlayerController : MonoBehaviour {
         Color finalColor = sr.color;
         finalColor.a = 1f;
         sr.color = finalColor; // Apply the final color to the sprite
+        isInvincible = false;
     }
 }

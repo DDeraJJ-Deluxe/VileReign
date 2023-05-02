@@ -78,8 +78,12 @@ public class Enemy : MonoBehaviour
     }
 
     void Attack() {
+        StartCoroutine(DelayForDamage());
         animator.SetTrigger("Attack");
-
+    }
+ 
+    private IEnumerator DelayForDamage() {
+        yield return new WaitForSeconds(0.6f);
         Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
 
         foreach(Collider2D player in hitPlayer) {

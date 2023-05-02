@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour {
     public Animator animator;
 
     public HealthBar healthBar;
+    public PlayerController player;
 
     void Start() {
         health = maxHealth;
@@ -27,6 +28,11 @@ public class PlayerHealth : MonoBehaviour {
     }
 
     public void TakeDamage(int damage) {
+
+        if (player.isInvincible) {
+            return;
+        }
+
         health -= damage;
 
         StartCoroutine(DamageAnimation());
