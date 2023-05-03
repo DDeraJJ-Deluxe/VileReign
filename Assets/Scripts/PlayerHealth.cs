@@ -34,7 +34,7 @@ public class PlayerHealth : MonoBehaviour {
         }
 
         health -= damage;
-
+        AudioManager.instance.playerDamage.Play();
         StartCoroutine(DamageAnimation());
 
         healthBar.SetHealth(health);

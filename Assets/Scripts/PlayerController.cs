@@ -46,6 +46,11 @@ public class PlayerController : MonoBehaviour {
     public float attackRate = 2f;
     public float nextAttackTime = 0f;
 
+    /* Sound Effects 
+    public AudioSource takeDamage;
+    public AudioSource sword;
+    public AudioSource hurtEnemy; */
+
     public ProjectileLaunch projectileLaunch;
 
     Rigidbody2D rb; // Reference to player's rigidbody
@@ -163,6 +168,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Attack() {
+        AudioManager.instance.sword.Play();
         StartCoroutine(DelayForDamage());
         animator.SetTrigger("Attack");
     }
