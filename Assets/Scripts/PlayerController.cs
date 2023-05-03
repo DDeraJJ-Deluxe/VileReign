@@ -178,6 +178,9 @@ public class PlayerController : MonoBehaviour {
             if (enemy.GetComponent<Zombie>() != null) {
                 enemy.GetComponent<Zombie>().TakeDamage(attackDamage);
             }
+            if (enemy.GetComponent<RangedSkeleton>() != null) {
+                enemy.GetComponent<RangedSkeleton>().TakeDamage(attackDamage);
+            }
         }
     }
 

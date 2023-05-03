@@ -20,7 +20,7 @@ public class ProjectileLaunch : MonoBehaviour
     }
 
     private IEnumerator DelayForAttack() {
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.20f);
         Instantiate(projectilePrefab, launchPoint.position, Quaternion.identity);
     }
 }
