@@ -23,11 +23,16 @@ public class Level : MonoBehaviour
     }
 
     public void GainExp(int exp) {
-        slider.DOValue(slider.value + exp, 0.5f);
-        if (slider.value >= slider.maxValue) {
-            lvlValue++;
-            slider.value -= slider.maxValue;
-            slider.maxValue += 50;
-        }
+        float currentExp = slider.value;
+        slider.DOValue(slider.value + exp, 0.5f).OnComplete(() => {
+            if (currentExp + exp >= slider.maxValue) {
+                float additionalExp = currentExp + exp - slider.maxValue;
+                lvlValue++;
+                slider.DOValue(slider.value - slider.maxValue, 0.5f).OnComplete(() => {
+                    slider.maxValue += 50;
+                    slider.DOValue(slider.value + additionalExp, 0.5f);
+                });
+            }
+        });
     }
 }

@@ -40,7 +40,7 @@ public class Zombie : MonoBehaviour
     }
 
     void Die() {
-        playerController.GainExp(30);
+        playerController.GainExp(50);
         animator.SetBool("isDead", true);
         GetComponent<Rigidbody2D>().isKinematic = true;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;

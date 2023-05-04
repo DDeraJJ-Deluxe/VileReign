@@ -41,7 +41,7 @@ public class Skeleton : MonoBehaviour
     }
 
     void Die() {
-        playerController.GainExp(20);
+        playerController.GainExp(40);
         animator.SetBool("isDead", true);
         GetComponent<Rigidbody2D>().isKinematic = true;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
