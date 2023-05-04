@@ -23,6 +23,9 @@ public class Skeleton : MonoBehaviour
     public float attackRate = 0.75f;
     float nextAttackTime = 0f;
 
+    private bool isDead = false;
+    public int expDropped = 40;
+
     public PlayerController playerController;
 
 
@@ -41,7 +44,7 @@ public class Skeleton : MonoBehaviour
     }
 
     void Die() {
-        playerController.GainExp(40);
+        playerController.GainExp(expDropped);
         animator.SetBool("isDead", true);
         GetComponent<Rigidbody2D>().isKinematic = true;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
@@ -89,10 +92,12 @@ public class Skeleton : MonoBehaviour
  
     private IEnumerator DelayForDamage() {
         yield return new WaitForSeconds(0.5f);
-        Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
+        if (!isDead) {
+            Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
 
-        foreach(Collider2D player in hitPlayer) {
-            player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+            foreach(Collider2D player in hitPlayer) {
+                player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+            }
         }
         animator.ResetTrigger("Attack");
     }

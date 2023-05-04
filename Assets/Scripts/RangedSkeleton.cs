@@ -22,6 +22,9 @@ public class RangedSkeleton : MonoBehaviour
     public float attackRate = 1f;
     float nextAttackTime = 0f;
 
+    private bool isDead = false;
+    public int expDropped = 30;
+
     public PlayerController playerController;
 
 
@@ -39,7 +42,8 @@ public class RangedSkeleton : MonoBehaviour
     }
 
     void Die() {
-        playerController.GainExp(30);
+        playerController.GainExp(expDropped);
+        isDead = true;
         animator.SetBool("isDead", true);
         GetComponent<Rigidbody2D>().isKinematic = true;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
@@ -111,6 +115,8 @@ public class RangedSkeleton : MonoBehaviour
 
     private IEnumerator DelayForAttack() {
         yield return new WaitForSeconds(1.8f);
-        Instantiate(projectilePrefab, launchPoint.position, Quaternion.identity);
+        if (!isDead) {
+            Instantiate(projectilePrefab, launchPoint.position, Quaternion.identity);
+        }
     }
 }

@@ -26945,6 +26945,7 @@ MonoBehaviour:
   isFacingRight: 0
   attackDistance: 10
   attackRate: 0.85
+  expDropped: 30
   playerController: {fileID: 241801289}
 --- !u!1 &1159169031
 GameObject:
@@ -40715,6 +40716,7 @@ MonoBehaviour:
   attackRange: 0.4
   attackDamage: 4
   attackRate: 0.75
+  expDropped: 40
   playerController: {fileID: 241801289}
 --- !u!1 &2024505419
 GameObject:
@@ -42118,4 +42120,5 @@ MonoBehaviour:
   attackRange: 0.4
   attackDamage: 4
   attackRate: 1
+  expDropped: 50
   playerController: {fileID: 241801289}

@@ -23,6 +23,9 @@ public class Zombie : MonoBehaviour
     public float attackRate = 1f;
     float nextAttackTime = 0f;
 
+    private bool isDead = false;
+    public int expDropped = 50;
+
     public PlayerController playerController;
 
     void Start()
@@ -40,7 +43,8 @@ public class Zombie : MonoBehaviour
     }
 
     void Die() {
-        playerController.GainExp(50);
+        playerController.GainExp(expDropped);
+        isDead = true;
         animator.SetBool("isDead", true);
         GetComponent<Rigidbody2D>().isKinematic = true;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
@@ -89,10 +93,12 @@ public class Zombie : MonoBehaviour
  
     private IEnumerator DelayForDamage() {
         yield return new WaitForSeconds(0.4f);
-        Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
+        if (!isDead) {
+            Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
 
-        foreach(Collider2D player in hitPlayer) {
-            player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+            foreach(Collider2D player in hitPlayer) {
+                player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+            }
         }
         animator.ResetTrigger("Attack");
     }
