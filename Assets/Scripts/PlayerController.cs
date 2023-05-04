@@ -58,6 +58,8 @@ public class PlayerController : MonoBehaviour {
     public SpriteRenderer sr; // Reference to player's sprite renderer
     public Animator animator;
 
+    public Level level;
+
     public Camera mainCamera; // Reference to the main camera
 
     void Start() {
@@ -188,6 +190,10 @@ public class PlayerController : MonoBehaviour {
                 enemy.GetComponent<RangedSkeleton>().TakeDamage(attackDamage);
             }
         }
+    }
+
+    public void GainExp(int exp) {
+        level.GainExp(exp);
     }
 
     void OnTriggerEnter2D(Collider2D collider) { 

@@ -23,6 +23,9 @@ public class Skeleton : MonoBehaviour
     public float attackRate = 0.75f;
     float nextAttackTime = 0f;
 
+    public PlayerController playerController;
+
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -38,6 +41,7 @@ public class Skeleton : MonoBehaviour
     }
 
     void Die() {
+        playerController.GainExp(20);
         animator.SetBool("isDead", true);
         GetComponent<Rigidbody2D>().isKinematic = true;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;

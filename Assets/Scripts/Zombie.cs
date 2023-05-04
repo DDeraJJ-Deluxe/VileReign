@@ -23,6 +23,8 @@ public class Zombie : MonoBehaviour
     public float attackRate = 1f;
     float nextAttackTime = 0f;
 
+    public PlayerController playerController;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -38,6 +40,7 @@ public class Zombie : MonoBehaviour
     }
 
     void Die() {
+        playerController.GainExp(30);
         animator.SetBool("isDead", true);
         GetComponent<Rigidbody2D>().isKinematic = true;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;

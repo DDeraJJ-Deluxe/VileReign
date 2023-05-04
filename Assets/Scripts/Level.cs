@@ -3,22 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
 
 public class Level : MonoBehaviour
 {
 
-    public static int lvlValue = 0;
-    [SerializeField] private TextMeshProUGUI level;
+    public Slider slider;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        level = GetComponent<TextMeshProUGUI>();
+    public static int lvlValue = 1;
+    [SerializeField] public TextMeshProUGUI level;
+
+    void Start() {
+        slider.value = 0;
+        slider.maxValue = 100;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        level.text = "Level " + lvlValue;
+    void Update() {
+        level.text = lvlValue.ToString();
+    }
+
+    public void GainExp(int exp) {
+        slider.DOValue(slider.value + exp, 0.5f);
+        if (slider.value >= slider.maxValue) {
+            lvlValue++;
+            slider.value -= slider.maxValue;
+            slider.maxValue += 50;
+        }
     }
 }
