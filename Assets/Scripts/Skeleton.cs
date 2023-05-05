@@ -24,7 +24,7 @@ public class Skeleton : MonoBehaviour
     float nextAttackTime = 0f;
 
     private bool isDead = false;
-    public int expDropped = 40;
+    public int expDropped = 20;
 
     public PlayerController playerController;
 

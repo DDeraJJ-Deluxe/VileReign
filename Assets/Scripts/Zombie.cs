@@ -24,7 +24,7 @@ public class Zombie : MonoBehaviour
     float nextAttackTime = 0f;
 
     private bool isDead = false;
-    public int expDropped = 50;
+    public int expDropped = 30;
 
     public PlayerController playerController;
 
@@ -100,6 +100,5 @@ public class Zombie : MonoBehaviour
                 player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
             }
         }
-        animator.ResetTrigger("Attack");
     }
 }

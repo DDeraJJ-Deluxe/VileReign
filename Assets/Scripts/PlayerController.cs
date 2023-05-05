@@ -189,6 +189,9 @@ public class PlayerController : MonoBehaviour {
             if (enemy.GetComponent<RangedSkeleton>() != null) {
                 enemy.GetComponent<RangedSkeleton>().TakeDamage(attackDamage);
             }
+            if (enemy.GetComponent<Ghost>() != null) {
+                enemy.GetComponent<Ghost>().TakeDamage(attackDamage);
+            }
         }
     }
 

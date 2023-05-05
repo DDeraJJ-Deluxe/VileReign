@@ -19,11 +19,11 @@ public class RangedSkeleton : MonoBehaviour
     public bool isFacingRight = false;
 
     public float attackDistance = 10f;
-    public float attackRate = 1f;
+    public float attackRate = 0.88f;
     float nextAttackTime = 0f;
 
     private bool isDead = false;
-    public int expDropped = 30;
+    public int expDropped = 45;
 
     public PlayerController playerController;
 
@@ -114,7 +114,7 @@ public class RangedSkeleton : MonoBehaviour
     }
 
     private IEnumerator DelayForAttack() {
-        yield return new WaitForSeconds(1.8f);
+        yield return new WaitForSeconds(1.77f);
         if (!isDead) {
             Instantiate(projectilePrefab, launchPoint.position, Quaternion.identity);
         }

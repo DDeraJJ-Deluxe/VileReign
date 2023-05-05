@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3940718357961287112}
   - component: {fileID: 927888511306958752}
   m_Layer: 0
-  m_Name: Monster4
+  m_Name: Ghost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
