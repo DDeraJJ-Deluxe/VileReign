@@ -136,14 +136,14 @@ public class Ghost : MonoBehaviour
 
     private IEnumerator DelayForAttack() {
         yield return new WaitForSeconds(1.8f);
-        if (!isDead || !isInvisible) {
+        if (!isDead && !isInvisible) {
             Instantiate(projectilePrefab, launchPoint.position, Quaternion.identity);
         }
     }
 
     private IEnumerator DelayForDamage() {
         yield return new WaitForSeconds(0.5f);
-        if (!isDead || !isInvisible) {
+        if (!isDead && !isInvisible) {
             Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
 
             foreach(Collider2D player in hitPlayer) {

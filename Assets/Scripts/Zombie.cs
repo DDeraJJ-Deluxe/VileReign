@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Zombie : MonoBehaviour
 {
@@ -88,7 +89,13 @@ public class Zombie : MonoBehaviour
 
     void Attack() {
         StartCoroutine(DelayForDamage());
-        animator.SetTrigger("Attack");
+        System.Random random = new System.Random();
+        int randomNumber = random.Next(0, 2);
+        if (randomNumber == 0) {
+            animator.SetTrigger("Attack");
+        } else {
+            animator.SetTrigger("Attack2");
+        }
     }
  
     private IEnumerator DelayForDamage() {
