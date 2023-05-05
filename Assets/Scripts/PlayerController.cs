@@ -6,11 +6,11 @@ using UnityEngine.Events;
 
 public class PlayerController : MonoBehaviour {
 
-    public float walkSpeed = 8f;  // Player walk speed
+    public float walkSpeed = 6f;  // Player walk speed
 
     /* Variable jump height */
     public float buttonTime = 0.5f; // Limit of jump button pressed
-    public float jumpHeight = 4.5f; // Max height of jump
+    public float jumpHeight = 3f; // Max height of jump
     public float cancelRate = 100; // For jump-cancelling
     float jumpTime; // Store time during jump
     bool jumping; // Flag for jumping
@@ -81,11 +81,13 @@ public class PlayerController : MonoBehaviour {
                 dodgeTimeRemaining = dodgeDuration;
                 StartCoroutine(FadeOutIn(dodgeDuration));
                 nextDodgeTime = Time.time + 1f / dodgeRate;
+                gameObject.layer = LayerMask.NameToLayer("PlayerDodge");
+                Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerDodge"), LayerMask.NameToLayer("PlayersEnemies"), true);
             }
         }
 
         if (Time.time >= nextAttackTime) {
-            if (Input.GetKeyDown(KeyCode.Mouse0) && !dodging) {
+            if (Input.GetKeyDown(KeyCode.Mouse0)) {
                 Attack();
                 projectileLaunch.Attack();
                 nextAttackTime = Time.time + 1f / attackRate;
@@ -118,6 +120,8 @@ public class PlayerController : MonoBehaviour {
             dodgeTimeRemaining -= Time.deltaTime;
             if (dodgeTimeRemaining <= 0) {
                 dodging = false;
+                gameObject.layer = LayerMask.NameToLayer("Player");
+                Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerDodge"), LayerMask.NameToLayer("PlayersEnemies"), true);
             }
         }
     }

@@ -25033,7 +25033,7 @@ GameObject:
   - component: {fileID: 83371381}
   - component: {fileID: 83371383}
   - component: {fileID: 83371382}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25156,7 +25156,7 @@ GameObject:
   - component: {fileID: 114527592}
   - component: {fileID: 114527594}
   - component: {fileID: 114527593}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25232,7 +25232,7 @@ GameObject:
   - component: {fileID: 145803806}
   - component: {fileID: 145803808}
   - component: {fileID: 145803807}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Health Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25452,7 +25452,7 @@ MonoBehaviour:
   feetPosition: {fileID: 723114821}
   groundCheckCircle: 0.3
   dodging: 0
-  dodgeDuration: 0.1
+  dodgeDuration: 0.125
   dodgeSpeed: 24
   dodgeRate: 1.5
   isFacingRight: 1
@@ -25711,7 +25711,7 @@ GameObject:
   - component: {fileID: 440262671}
   - component: {fileID: 440262673}
   - component: {fileID: 440262672}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Health Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25920,7 +25920,7 @@ GameObject:
   - component: {fileID: 457805103}
   - component: {fileID: 457805102}
   - component: {fileID: 457805101}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26078,7 +26078,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5830892330604492097, guid: 4f83a491ddba76f468fb1f35ace61e7b, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5830892330604492097, guid: 4f83a491ddba76f468fb1f35ace61e7b, type: 3}
       propertyPath: m_TagString
@@ -26262,7 +26262,7 @@ GameObject:
   - component: {fileID: 523248664}
   - component: {fileID: 523248663}
   - component: {fileID: 523248662}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27173,7 +27173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4815860582136922600, guid: bc94877d4e31ff74babdd063855cf777, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4815860582136922600, guid: bc94877d4e31ff74babdd063855cf777, type: 3}
       propertyPath: m_TagString
@@ -27252,7 +27252,7 @@ GameObject:
   - component: {fileID: 1152222207}
   - component: {fileID: 1152222209}
   - component: {fileID: 1152222208}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27427,7 +27427,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1187422907}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LaunchPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27460,7 +27460,7 @@ GameObject:
   - component: {fileID: 1205603500}
   - component: {fileID: 1205603502}
   - component: {fileID: 1205603501}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40500,7 +40500,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1493315720}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LaunchPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40531,7 +40531,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1496425180}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
