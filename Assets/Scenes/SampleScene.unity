@@ -25711,7 +25711,7 @@ GameObject:
   - component: {fileID: 440262671}
   - component: {fileID: 440262673}
   - component: {fileID: 440262672}
-  m_Layer: 11
+  m_Layer: 3
   m_Name: Health Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25920,7 +25920,7 @@ GameObject:
   - component: {fileID: 457805103}
   - component: {fileID: 457805102}
   - component: {fileID: 457805101}
-  m_Layer: 11
+  m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27173,7 +27173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4815860582136922600, guid: bc94877d4e31ff74babdd063855cf777, type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4815860582136922600, guid: bc94877d4e31ff74babdd063855cf777, type: 3}
       propertyPath: m_TagString
@@ -27252,7 +27252,7 @@ GameObject:
   - component: {fileID: 1152222207}
   - component: {fileID: 1152222209}
   - component: {fileID: 1152222208}
-  m_Layer: 11
+  m_Layer: 3
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27460,7 +27460,7 @@ GameObject:
   - component: {fileID: 1205603500}
   - component: {fileID: 1205603502}
   - component: {fileID: 1205603501}
-  m_Layer: 11
+  m_Layer: 3
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40500,7 +40500,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1493315720}
-  m_Layer: 11
+  m_Layer: 3
   m_Name: LaunchPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40531,7 +40531,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1496425180}
-  m_Layer: 11
+  m_Layer: 3
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
