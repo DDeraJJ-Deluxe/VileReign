@@ -40,12 +40,18 @@ public class PlayerHealth : MonoBehaviour {
         healthBar.SetHealth(health);
         if (health <= 0) {
             Die();
+            StartCoroutine(DeathAnimation());
         }
     }
 
     void Die() {
         animator.SetBool("isDead", true);
         this.enabled = false;
+    }
+
+    IEnumerator DeathAnimation() {
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("SampleScene");
     }
 
     IEnumerator DamageAnimation()
