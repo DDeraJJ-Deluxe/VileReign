@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0542d431a910fb3408aed2bdc52eade2
+guid: 0b8d657f9d0d3f74f92a30f9338871f0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_0
+      name: NightBorne_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 651
-        width: 140
-        height: 93
+        y: 320
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 04ebb7a48f02c9349a8246577bd07531
-      internalID: -1906750966
+      spriteID: 9a67dcb4c230f034bb63a2f6f7b61d58
+      internalID: -1291226567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_1
+      name: NightBorne_1
       rect:
         serializedVersion: 2
-        x: 140
-        y: 651
-        width: 140
-        height: 93
+        x: 80
+        y: 320
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96688b8ddc005e344b090413f5308d55
-      internalID: 663869763
+      spriteID: 65790995690fe7f43825d73519f10922
+      internalID: 1518977726
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_2
+      name: NightBorne_2
       rect:
         serializedVersion: 2
-        x: 280
-        y: 651
-        width: 140
-        height: 93
+        x: 160
+        y: 320
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c15ed6dfbed4c924f8715e0f7e67e23e
-      internalID: 703793955
+      spriteID: b026dfa068174ba4d8af5e0d7e92164f
+      internalID: -1199872641
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_3
+      name: NightBorne_3
       rect:
         serializedVersion: 2
-        x: 420
-        y: 651
-        width: 140
-        height: 93
+        x: 240
+        y: 320
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +182,83 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c036067ed00ede64a89fa4d46d5cd340
-      internalID: -1048635587
+      spriteID: e8f48f89520a0c84ba3fdb735b37e2c5
+      internalID: -1817989223
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_4
+      name: NightBorne_4
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8430ef04d3f08914890b094bae869982
+      internalID: -270849889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightBorne_5
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 320
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b14ce759e5fb93a4bb0750690b76b3ee
+      internalID: 1400406926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightBorne_6
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 320
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d625e2902c0a9f04faf9e9b03777495b
+      internalID: -1144570477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightBorne_7
       rect:
         serializedVersion: 2
         x: 560
-        y: 651
-        width: 140
-        height: 93
+        y: 320
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -203,20 +266,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2e22c2702fa28e4b8a95332342f614c
-      internalID: 1208650731
+      spriteID: 32208a394ef18204cb742e33b57356dc
+      internalID: 907190756
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_5
+      name: NightBorne_8
       rect:
         serializedVersion: 2
-        x: 700
-        y: 651
-        width: 140
-        height: 93
+        x: 640
+        y: 320
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,62 +287,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3518d4f641d67f40bfe600231ad1545
-      internalID: -895762173
+      spriteID: 9a98d6755b4268042b31da64f8158609
+      internalID: -1721889819
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_6
-      rect:
-        serializedVersion: 2
-        x: 840
-        y: 651
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6dd771225aa072c4dbf8237b959c9b2b
-      internalID: 1170910019
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_7
-      rect:
-        serializedVersion: 2
-        x: 980
-        y: 651
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d10d3f40c9926c046bc5b6b6dd5b48f9
-      internalID: -1156164234
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_8
+      name: NightBorne_9
       rect:
         serializedVersion: 2
         x: 0
-        y: 558
-        width: 140
-        height: 93
+        y: 240
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,20 +308,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5591f62403056a48a3ea7717313f082
-      internalID: 1410439575
+      spriteID: 7a28d21c46089394a9772677d63bbbc2
+      internalID: -1939395176
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_9
+      name: NightBorne_10
       rect:
         serializedVersion: 2
-        x: 140
-        y: 558
-        width: 140
-        height: 93
+        x: 80
+        y: 240
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -308,20 +329,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0a35b71b4af87f439dc68d161e39ff8
-      internalID: 1617320078
+      spriteID: 7dbe2d2e33c25a2448a1ca155a2af5ac
+      internalID: 74498665
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_10
+      name: NightBorne_11
       rect:
         serializedVersion: 2
-        x: 280
-        y: 558
-        width: 140
-        height: 93
+        x: 160
+        y: 240
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -329,20 +350,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0b31a3ff4d7ea34bba8e156a62d1150
-      internalID: 555180373
+      spriteID: 6d23c14e6021aa4478171d513d9ea5dc
+      internalID: -387279584
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_11
+      name: NightBorne_12
       rect:
         serializedVersion: 2
-        x: 420
-        y: 558
-        width: 140
-        height: 93
+        x: 240
+        y: 240
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -350,20 +371,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70ab9f73250d3504081ea0a9f3fcd2af
-      internalID: 1742370766
+      spriteID: 6869fe5a6e5969e45a3dd6eb25068a60
+      internalID: -1349276389
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_12
+      name: NightBorne_13
       rect:
         serializedVersion: 2
-        x: 560
-        y: 558
-        width: 140
-        height: 93
+        x: 320
+        y: 240
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -371,20 +392,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b8bb09d69ece57441a968e00009208bf
-      internalID: 1740385219
+      spriteID: 8fe583197afcb104592545feb476f9f6
+      internalID: 1942194597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_13
+      name: NightBorne_14
       rect:
         serializedVersion: 2
-        x: 700
-        y: 558
-        width: 140
-        height: 93
+        x: 400
+        y: 240
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -392,62 +413,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe19ab5a0bba2664299a5a3f47c00664
-      internalID: 1425577813
+      spriteID: 793f3cb97417a6144b0373c4be1354c2
+      internalID: -90373949
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_14
-      rect:
-        serializedVersion: 2
-        x: 840
-        y: 558
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c9d324f33e234e94f942f777be2a981e
-      internalID: -8190265
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_15
-      rect:
-        serializedVersion: 2
-        x: 980
-        y: 558
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 342a1eb05c83ebb4ba725200c35ccdf4
-      internalID: 2012947809
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_16
+      name: NightBorne_15
       rect:
         serializedVersion: 2
         x: 0
-        y: 465
-        width: 140
-        height: 93
+        y: 160
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -455,20 +434,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c826f9505f19b0478bfd03dd9578c60
-      internalID: -878850053
+      spriteID: 9835d3199f960824e9dd433d29d7ee7d
+      internalID: -1636597240
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_17
+      name: NightBorne_16
       rect:
         serializedVersion: 2
-        x: 140
-        y: 465
-        width: 140
-        height: 93
+        x: 80
+        y: 160
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -476,20 +455,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eef8ba68192f93a4da20601cac4e0ca8
-      internalID: -1028599116
+      spriteID: 196242cfca752cc418f7d463a92c3381
+      internalID: -1727762410
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_18
+      name: NightBorne_17
       rect:
         serializedVersion: 2
-        x: 280
-        y: 465
-        width: 140
-        height: 93
+        x: 160
+        y: 160
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -497,20 +476,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e63c1773196dc54096ef1424cb20a67
-      internalID: -1942043809
+      spriteID: 8d641c302cc61ba4584ed48b690d4669
+      internalID: -495791843
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_19
+      name: NightBorne_18
       rect:
         serializedVersion: 2
-        x: 420
-        y: 465
-        width: 140
-        height: 93
+        x: 240
+        y: 160
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -518,20 +497,83 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69d02b502972ffd4287acbdd43559b42
-      internalID: -1455231822
+      spriteID: 60592300b67cda547a1b8f79c66916b7
+      internalID: 2096794722
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_20
+      name: NightBorne_19
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 160
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 804ccf8ea1d9d274cb9ca77c56928704
+      internalID: 1228095387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightBorne_20
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 160
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04ca69bac1041874283a281dbc9abded
+      internalID: -1175451491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightBorne_21
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 160
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1477e23b37e13f5489118e66dac61996
+      internalID: -1083980149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightBorne_22
       rect:
         serializedVersion: 2
         x: 560
-        y: 465
-        width: 140
-        height: 93
+        y: 160
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -539,20 +581,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 54e42d6f4b2a55a48b5c9337b705bfb1
-      internalID: -2099302514
+      spriteID: a7bea99b46ea4cc468a9f24f83bcddb1
+      internalID: -178240320
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_21
+      name: NightBorne_23
       rect:
         serializedVersion: 2
-        x: 700
-        y: 465
-        width: 140
-        height: 93
+        x: 640
+        y: 160
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -560,20 +602,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 637390497b55e7b46acd1e0461853695
-      internalID: -1496262495
+      spriteID: 45813ceae47f229488cc1285d01b320d
+      internalID: 1538294415
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_22
+      name: NightBorne_24
       rect:
         serializedVersion: 2
-        x: 840
-        y: 465
-        width: 140
-        height: 93
+        x: 720
+        y: 160
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -581,20 +623,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90091dcf863b5d24ea7f31845c93ad46
-      internalID: 55904942
+      spriteID: 6e43d2362c1edc1458e874ac38a18dd3
+      internalID: -93694298
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_23
+      name: NightBorne_25
       rect:
         serializedVersion: 2
-        x: 980
-        y: 465
-        width: 140
-        height: 93
+        x: 800
+        y: 160
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -602,20 +644,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 90b0b9964c41bf14d8b4efcdb6683d7a
-      internalID: 787596251
+      spriteID: f299de52f5c15bf4b8b75914cf367d73
+      internalID: 238922279
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_24
+      name: NightBorne_26
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 160
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87d675081bb66c84396aaa352c6d7fd9
+      internalID: 1132986636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightBorne_27
       rect:
         serializedVersion: 2
         x: 0
-        y: 372
-        width: 140
-        height: 93
+        y: 80
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -623,20 +686,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4af2cb30e587c6447ac82b4d01f134dc
-      internalID: 1852583537
+      spriteID: 875136fe7146f9845b5c954517c4deab
+      internalID: -129467377
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_25
+      name: NightBorne_28
       rect:
         serializedVersion: 2
-        x: 140
-        y: 372
-        width: 140
-        height: 93
+        x: 80
+        y: 80
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -644,20 +707,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec5ccaf9802a9994aae855c8277a662b
-      internalID: -1926695890
+      spriteID: 7d8da2777f5acd947b2cd593e8e4ed71
+      internalID: 1222232721
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_26
+      name: NightBorne_29
       rect:
         serializedVersion: 2
-        x: 280
-        y: 372
-        width: 140
-        height: 93
+        x: 160
+        y: 80
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -665,20 +728,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd0e5c493c30f54499c4b3fe17034ca5
-      internalID: 1384402756
+      spriteID: a3a8721ce0bd6ce4f92c2b6da912e5fa
+      internalID: 1654871341
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_27
+      name: NightBorne_30
       rect:
         serializedVersion: 2
-        x: 420
-        y: 372
-        width: 140
-        height: 93
+        x: 240
+        y: 80
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -686,20 +749,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 715bbc4e1b7458341a18c32a2bda56d9
-      internalID: -535440539
+      spriteID: 31c3da08041e0b944aa84ea66eb8ff14
+      internalID: -913312187
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_28
+      name: NightBorne_31
       rect:
         serializedVersion: 2
-        x: 560
-        y: 372
-        width: 140
-        height: 93
+        x: 320
+        y: 80
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -707,587 +770,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f837b0149de0cea44b8e0eb09ed7c659
-      internalID: -1461398713
+      spriteID: b67bc2347c24ff5419e4e9a8c6b3545c
+      internalID: -1276411863
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_29
-      rect:
-        serializedVersion: 2
-        x: 700
-        y: 372
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7b446a4e3e1701b4fae74d0ec6d80700
-      internalID: 399120791
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_30
-      rect:
-        serializedVersion: 2
-        x: 840
-        y: 372
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ddb74483b0e13da4abb620eaaeed9c2a
-      internalID: -130390502
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_31
-      rect:
-        serializedVersion: 2
-        x: 980
-        y: 372
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0613b7a87bddf3c44acc30e84a401012
-      internalID: 718427175
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_32
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 279
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 19d1aa945f06e3d4ab74b59eb81bbc80
-      internalID: 1799133569
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_33
-      rect:
-        serializedVersion: 2
-        x: 140
-        y: 279
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5e407d81cc5f9334397e8d16ad96cda9
-      internalID: -930072696
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_34
-      rect:
-        serializedVersion: 2
-        x: 280
-        y: 279
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b91eb4dea0638024cb6c6936a8080e60
-      internalID: 1263521155
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_35
-      rect:
-        serializedVersion: 2
-        x: 420
-        y: 279
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 45c2e4b08f59644479d56f5b8a4a25b9
-      internalID: 1255164023
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_36
-      rect:
-        serializedVersion: 2
-        x: 560
-        y: 279
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9863402f4dae44845b2fc9ece5822594
-      internalID: -1631779738
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_37
-      rect:
-        serializedVersion: 2
-        x: 700
-        y: 279
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 94342510c660c6b4fb155ba9ae8f9327
-      internalID: -2100144744
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_38
-      rect:
-        serializedVersion: 2
-        x: 840
-        y: 279
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 09cad5f49187862428ed10170505327e
-      internalID: 2035866011
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_39
-      rect:
-        serializedVersion: 2
-        x: 980
-        y: 279
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 544e39a6454999e4db154ba5b1d9bfc9
-      internalID: 1017803623
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_40
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 186
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 40a469f9bf41da240b71bfa9521962fe
-      internalID: 728028850
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_41
-      rect:
-        serializedVersion: 2
-        x: 140
-        y: 186
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a80a16d239801d84eb40f78a2447e41f
-      internalID: -603715643
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_42
-      rect:
-        serializedVersion: 2
-        x: 280
-        y: 186
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3ea3d3528a5ca1149879422519bbfc8a
-      internalID: 346097779
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_43
-      rect:
-        serializedVersion: 2
-        x: 420
-        y: 186
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 68a450d39fa4ab84ab17483652d9ff2b
-      internalID: 50801560
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_44
-      rect:
-        serializedVersion: 2
-        x: 560
-        y: 186
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 544834ce21785f5498f1bacccdb77e9a
-      internalID: 1297526842
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_45
-      rect:
-        serializedVersion: 2
-        x: 700
-        y: 186
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2e66d701ec75a7b449396bbc1f43f97c
-      internalID: 1856849153
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_46
-      rect:
-        serializedVersion: 2
-        x: 840
-        y: 186
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ff44d8c1da2a13749948faefa988964c
-      internalID: -186883511
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_47
-      rect:
-        serializedVersion: 2
-        x: 980
-        y: 186
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 46e6d11c6f9fb2e40b29ef8c825691ae
-      internalID: 575494250
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_48
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 93
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7470dcb763c146e4b9ad0c53c0ce9273
-      internalID: 2070492966
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_49
-      rect:
-        serializedVersion: 2
-        x: 140
-        y: 93
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1f8f7efa082c91a43aea266b1317cf73
-      internalID: 45100483
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_50
-      rect:
-        serializedVersion: 2
-        x: 280
-        y: 93
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: df96be02b17543540b694234a424edc7
-      internalID: 1967428264
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_51
-      rect:
-        serializedVersion: 2
-        x: 420
-        y: 93
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8efb06d5a368d3c48a00c314160a287a
-      internalID: -1965046501
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_52
-      rect:
-        serializedVersion: 2
-        x: 560
-        y: 93
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae06e9cdd53199a4780981492d66b5bf
-      internalID: -248424714
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_53
-      rect:
-        serializedVersion: 2
-        x: 700
-        y: 93
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3719d7a6acc24514e87c8243d1aa2de1
-      internalID: -913247722
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_54
-      rect:
-        serializedVersion: 2
-        x: 840
-        y: 93
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e1c994c9810d79747a8e4c56eeeea63c
-      internalID: -1088806333
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_55
-      rect:
-        serializedVersion: 2
-        x: 980
-        y: 93
-        width: 140
-        height: 93
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 91d4af9d4077e744386eda05a6740620
-      internalID: -622336228
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_56
+      name: NightBorne_32
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 140
-        height: 93
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1295,20 +791,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c071f1b4da8578943b99121eff68d10e
-      internalID: 2094329609
+      spriteID: 42fcdbd8a0f46d34a9f6bda1c69a5063
+      internalID: -2014156224
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_57
+      name: NightBorne_33
       rect:
         serializedVersion: 2
-        x: 140
+        x: 80
         y: 0
-        width: 140
-        height: 93
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1316,20 +812,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4ddfe6e1e037c584ea617cb887388daf
-      internalID: -964174460
+      spriteID: e39b378743c904944acb26c1d3e94b84
+      internalID: 907246283
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_58
+      name: NightBorne_34
       rect:
         serializedVersion: 2
-        x: 280
+        x: 160
         y: 0
-        width: 140
-        height: 93
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1337,20 +833,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ce4bc78a9003b34ea7c493b9cff6ad2
-      internalID: 1433061876
+      spriteID: 30b12bad7329fbb4c82a1bd0733b1310
+      internalID: 1731282971
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_59
+      name: NightBorne_35
       rect:
         serializedVersion: 2
-        x: 420
+        x: 240
         y: 0
-        width: 140
-        height: 93
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1358,20 +854,83 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4932a35d3fa6aa64faa5506a26927656
-      internalID: 1315932854
+      spriteID: 7ae82f7eb7422f1498697ba9b90679b7
+      internalID: -1948843666
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_60
+      name: NightBorne_36
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f0121fa64eb96349a48885b4ce35a01
+      internalID: 934815492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightBorne_37
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eea872f21439d3f418f076c93853ec18
+      internalID: -2048865055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightBorne_38
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f639928b5270b2c409c027e88d159f1c
+      internalID: 266970270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightBorne_39
       rect:
         serializedVersion: 2
         x: 560
         y: 0
-        width: 140
-        height: 93
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1379,20 +938,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2382d3b3a9e0be6408db019b500b7de3
-      internalID: -1466118635
+      spriteID: a817c23ee162d94419fc24cf791306b6
+      internalID: -1615966514
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_61
+      name: NightBorne_40
       rect:
         serializedVersion: 2
-        x: 700
+        x: 640
         y: 0
-        width: 140
-        height: 93
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1400,20 +959,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 674d9580cd40ba047b0be3c892b28149
-      internalID: -1001710336
+      spriteID: bc47dd399945aac45a7c76f5554f0749
+      internalID: 96006506
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_62
+      name: NightBorne_41
       rect:
         serializedVersion: 2
-        x: 840
+        x: 720
         y: 0
-        width: 140
-        height: 93
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1421,20 +980,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68e7b240acec8154aacd642e5f8dc464
-      internalID: -1019944205
+      spriteID: d9ceae3e6364cb044b5c2c10c9bb1cb1
+      internalID: -1628263209
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bringer-of-Death-SpritSheet_63
+      name: NightBorne_42
       rect:
         serializedVersion: 2
-        x: 980
+        x: 800
         y: 0
-        width: 140
-        height: 93
+        width: 80
+        height: 80
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1442,8 +1001,281 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6d345109af2647541bf4e449551c1cf5
-      internalID: -1810315788
+      spriteID: 8d2eef4bd7fdf164c9e6e7b6c9cdc2c2
+      internalID: -379462363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightBorne_43
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f06c359e7a354540bdb35155a29e5c9
+      internalID: -794687256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightBorne_44
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad5a5b1eb734d6448a586674a99e8e43
+      internalID: 174179651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightBorne_45
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ad286c77c7120843b13d268d2e29490
+      internalID: 39554767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightBorne_46
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4983455e3b11af54aa6464c616ec803b
+      internalID: 1185319308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightBorne_47
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78643771c171c4a44b95c47a9e7c83a3
+      internalID: -1639492214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightBorne_48
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c026fbf3ee73a944af53cb02a72f28e
+      internalID: 1485570469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightBorne_49
+      rect:
+        serializedVersion: 2
+        x: 1360
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b22d315086f48d54d94a78262002c2a8
+      internalID: 253590604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightBorne_50
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b92fd0f01728484384359550eb1f002
+      internalID: 1577155919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightBorne_51
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 034b5be14e1c6f044a9b41b567b62642
+      internalID: 2102232534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightBorne_52
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0b93a998885f634ca30aae8ad7d3de3
+      internalID: 892725079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightBorne_53
+      rect:
+        serializedVersion: 2
+        x: 1680
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab298f0b860d166418646a4cdf15b7a6
+      internalID: -516144438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightBorne_54
+      rect:
+        serializedVersion: 2
+        x: 1760
+        y: 0
+        width: 80
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd6691186d0ed7a49912c49d4bc9ca0d
+      internalID: 1405359052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: NightBorne_55
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 239
+        width: 79
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e17acfbb9cfc6642a5f08db257bed27
+      internalID: -1338765118
       vertices: []
       indices: 
       edges: []
@@ -1459,70 +1291,62 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Bringer-of-Death-SpritSheet_51: -1965046501
-      Bringer-of-Death-SpritSheet_12: 1740385219
-      Bringer-of-Death-SpritSheet_26: 1384402756
-      Bringer-of-Death-SpritSheet_9: 1617320078
-      Bringer-of-Death-SpritSheet_48: 2070492966
-      Bringer-of-Death-SpritSheet_5: -895762173
-      Bringer-of-Death-SpritSheet_31: 718427175
-      Bringer-of-Death-SpritSheet_11: 1742370766
-      Bringer-of-Death-SpritSheet_60: -1466118635
-      Bringer-of-Death-SpritSheet_56: 2094329609
-      Bringer-of-Death-SpritSheet_36: -1631779738
-      Bringer-of-Death-SpritSheet_15: 2012947809
-      Bringer-of-Death-SpritSheet_47: 575494250
-      Bringer-of-Death-SpritSheet_55: -622336228
-      Bringer-of-Death-SpritSheet_18: -1942043809
-      Bringer-of-Death-SpritSheet_24: 1852583537
-      Bringer-of-Death-SpritSheet_30: -130390502
-      Bringer-of-Death-SpritSheet_61: -1001710336
-      Bringer-of-Death-SpritSheet_29: 399120791
-      Bringer-of-Death-SpritSheet_44: 1297526842
-      Bringer-of-Death-SpritSheet_34: 1263521155
-      Bringer-of-Death-SpritSheet_40: 728028850
-      Bringer-of-Death-SpritSheet_7: -1156164234
-      Bringer-of-Death-SpritSheet_33: -930072696
-      Bringer-of-Death-SpritSheet_63: -1810315788
-      Bringer-of-Death-SpritSheet_37: -2100144744
-      Bringer-of-Death-SpritSheet_8: 1410439575
-      Bringer-of-Death-SpritSheet_16: -878850053
-      Bringer-of-Death-SpritSheet_42: 346097779
-      Bringer-of-Death-SpritSheet_10: 555180373
-      Bringer-of-Death-SpritSheet_45: 1856849153
-      Bringer-of-Death-SpritSheet_58: 1433061876
-      Bringer-of-Death-SpritSheet_53: -913247722
-      Bringer-of-Death-SpritSheet_3: -1048635587
-      Bringer-of-Death-SpritSheet_62: -1019944205
-      Bringer-of-Death-SpritSheet_32: 1799133569
-      Bringer-of-Death-SpritSheet_1: 663869763
-      Bringer-of-Death-SpritSheet_6: 1170910019
-      Bringer-of-Death-SpritSheet_21: -1496262495
-      Bringer-of-Death-SpritSheet_41: -603715643
-      Bringer-of-Death-SpritSheet_0: -1906750966
-      Bringer-of-Death-SpritSheet_22: 55904942
-      Bringer-of-Death-SpritSheet_20: -2099302514
-      Bringer-of-Death-SpritSheet_17: -1028599116
-      Bringer-of-Death-SpritSheet_2: 703793955
-      Bringer-of-Death-SpritSheet_57: -964174460
-      Bringer-of-Death-SpritSheet_25: -1926695890
-      Bringer-of-Death-SpritSheet_49: 45100483
-      Bringer-of-Death-SpritSheet_54: -1088806333
-      Bringer-of-Death-SpritSheet_59: 1315932854
-      Bringer-of-Death-SpritSheet_50: 1967428264
-      Bringer-of-Death-SpritSheet_52: -248424714
-      Bringer-of-Death-SpritSheet_13: 1425577813
-      Bringer-of-Death-SpritSheet_19: -1455231822
-      Bringer-of-Death-SpritSheet_23: 787596251
-      Bringer-of-Death-SpritSheet_43: 50801560
-      Bringer-of-Death-SpritSheet_38: 2035866011
-      Bringer-of-Death-SpritSheet_28: -1461398713
-      Bringer-of-Death-SpritSheet_14: -8190265
-      Bringer-of-Death-SpritSheet_39: 1017803623
-      Bringer-of-Death-SpritSheet_4: 1208650731
-      Bringer-of-Death-SpritSheet_35: 1255164023
-      Bringer-of-Death-SpritSheet_27: -535440539
-      Bringer-of-Death-SpritSheet_46: -186883511
+      NightBorne_15: -1636597240
+      NightBorne_53: -516144438
+      NightBorne_11: -387279584
+      NightBorne_13: 1942194597
+      NightBorne_50: 1577155919
+      NightBorne_36: 934815492
+      NightBorne_49: 253590604
+      NightBorne_55: -1338765118
+      NightBorne_12: -1349276389
+      NightBorne_0: -1291226567
+      NightBorne_14: -90373949
+      NightBorne_23: 1538294415
+      NightBorne_10: 74498665
+      NightBorne_9: -1939395176
+      NightBorne_35: -1948843666
+      NightBorne_33: 907246283
+      NightBorne_52: 892725079
+      NightBorne_4: -270849889
+      NightBorne_3: -1817989223
+      NightBorne_38: 266970270
+      NightBorne_17: -495791843
+      NightBorne_28: 1222232721
+      NightBorne_6: -1144570477
+      NightBorne_26: 1132986636
+      NightBorne_42: -379462363
+      NightBorne_39: -1615966514
+      NightBorne_44: 174179651
+      NightBorne_1: 1518977726
+      NightBorne_8: -1721889819
+      NightBorne_46: 1185319308
+      NightBorne_20: -1175451491
+      NightBorne_54: 1405359052
+      NightBorne_19: 1228095387
+      NightBorne_21: -1083980149
+      NightBorne_43: -794687256
+      NightBorne_25: 238922279
+      NightBorne_48: 1485570469
+      NightBorne_22: -178240320
+      NightBorne_29: 1654871341
+      NightBorne_7: 907190756
+      NightBorne_37: -2048865055
+      NightBorne_45: 39554767
+      NightBorne_51: 2102232534
+      NightBorne_2: -1199872641
+      NightBorne_16: -1727762410
+      NightBorne_18: 2096794722
+      NightBorne_27: -129467377
+      NightBorne_5: 1400406926
+      NightBorne_34: 1731282971
+      NightBorne_30: -913312187
+      NightBorne_41: -1628263209
+      NightBorne_40: 96006506
+      NightBorne_47: -1639492214
+      NightBorne_24: -93694298
+      NightBorne_31: -1276411863
+      NightBorne_32: -2014156224
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
