@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Miniboss : MonoBehaviour {
+public class VoidReaper : MonoBehaviour {
 
     public int damage;
     public PlayerHealth playerHealth;
