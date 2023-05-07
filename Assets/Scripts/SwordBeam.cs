@@ -53,6 +53,9 @@ public class SwordBeam : MonoBehaviour
         }
         if (collision.gameObject.GetComponent<Ghost>() != null) {
             collision.gameObject.GetComponent<Ghost>().TakeDamage(projectileDamage);
+        }
+        if (collision.gameObject.GetComponent<VoidReaper>() != null) {
+            collision.gameObject.GetComponent<VoidReaper>().TakeDamage(projectileDamage);
         } 
         Destroy(gameObject);
     }

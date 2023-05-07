@@ -196,6 +196,9 @@ public class PlayerController : MonoBehaviour {
             if (enemy.GetComponent<Ghost>() != null) {
                 enemy.GetComponent<Ghost>().TakeDamage(attackDamage);
             }
+            if (enemy.GetComponent<VoidReaper>() != null) {
+                enemy.GetComponent<VoidReaper>().TakeDamage(attackDamage);
+            }
         }
     }
 
