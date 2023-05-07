@@ -206,8 +206,13 @@ public class PlayerController : MonoBehaviour {
         level.GainExp(exp);
     }
 
-    void OnTriggerEnter2D(Collider2D collider) { 
-
+    void OnTriggerEnter2D(Collider2D collider) 
+    { 
+        if (collider.gameObject.tag == "DoubleJump") 
+        { 
+            unlockedDoubleJump = true;
+            Destroy(collider.gameObject);  
+        }
     }
 
     /* Fades out and in for a given duration */

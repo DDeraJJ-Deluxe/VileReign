@@ -31,6 +31,8 @@ public class VoidReaper : MonoBehaviour {
     public SpriteRenderer sr;
 
     public Transform boundary;
+    public Transform doubleJumpLocation;
+    public GameObject doubleJumpPrefab;
 
     void Start() {
         healthBar.gameObject.SetActive(false);
@@ -59,6 +61,8 @@ public class VoidReaper : MonoBehaviour {
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
         healthBar.gameObject.SetActive(false);
+        RevealDoubleJump();
+
     }
 
     void Update() {
@@ -106,5 +110,9 @@ public class VoidReaper : MonoBehaviour {
                 player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
             }
         }
+    }
+
+    void RevealDoubleJump() {
+        Instantiate(doubleJumpPrefab, doubleJumpLocation.position, Quaternion.identity);
     }
 }

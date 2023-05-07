@@ -25145,6 +25145,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &96130323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 96130324}
+  m_Layer: 0
+  m_Name: DoubleJumpLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &96130324
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96130323}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 65.5, y: 6.569, z: -0.031889465}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &114527591
 GameObject:
   m_ObjectHideFlags: 0
@@ -27086,6 +27117,8 @@ MonoBehaviour:
   playerController: {fileID: 241801289}
   sr: {fileID: 788284551}
   boundary: {fileID: 1304077860}
+  doubleJumpLocation: {fileID: 0}
+  doubleJumpPrefab: {fileID: 7234273056930488535, guid: 4ead2679cb4a99846a60b1f1ca9c0e67, type: 3}
 --- !u!1 &790598296
 GameObject:
   m_ObjectHideFlags: 0
