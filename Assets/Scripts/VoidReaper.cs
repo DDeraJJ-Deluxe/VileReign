@@ -10,7 +10,7 @@ public class VoidReaper : MonoBehaviour {
     int currentHealth;
     public HealthBar healthBar;
 
-    public float moveSpeed = 4f;
+    public float moveSpeed = 3.5f;
 
     public Transform playerTransform;
     public bool isAttacking;
@@ -21,7 +21,7 @@ public class VoidReaper : MonoBehaviour {
     public LayerMask playerLayer;
     public float attackRange = 1.5f;
     public int attackDamage = 15;
-    public float attackRate = 1f;
+    public float attackRate = 0.5f;
     float nextAttackTime = 0f;
 
     private bool isDead = false;
@@ -31,6 +31,7 @@ public class VoidReaper : MonoBehaviour {
     public SpriteRenderer sr;
 
     void Start() {
+        healthBar.gameObject.SetActive(false);
         sr = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
@@ -42,6 +43,7 @@ public class VoidReaper : MonoBehaviour {
         if (currentHealth <= 0) {
             Die();
         }
+
     }
 
     void Die() {
@@ -58,7 +60,7 @@ public class VoidReaper : MonoBehaviour {
     void Update() {
         float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
         if (distanceToPlayer <= attackDistance) {
-            /*
+            healthBar.gameObject.SetActive(true);
             if (transform.position.x > playerTransform.position.x) {
                 animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
                 transform.localScale = new Vector3(3.6f, 3.6f, 3.6f);
@@ -68,8 +70,8 @@ public class VoidReaper : MonoBehaviour {
                 animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
                 transform.localScale = new Vector3(-3.6f, 3.6f, 3.6f);
                 transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-            }*/
-            if (distanceToPlayer <= 2f) { // <1
+            }
+            if (distanceToPlayer <= 2.5f) { // <1
                 if (Time.time >= nextAttackTime) {
                     Attack();
                     nextAttackTime = Time.time + 1f / attackRate;
