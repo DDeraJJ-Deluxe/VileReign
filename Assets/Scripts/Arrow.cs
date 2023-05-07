@@ -18,7 +18,7 @@ public class Arrow : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         projectileCount = projectileLife;
-        rangedSkeleton = GameObject.FindGameObjectWithTag("Enemy").GetComponent<RangedSkeleton>();
+        rangedSkeleton = GameObject.FindGameObjectWithTag("RangedSkeleton").GetComponent<RangedSkeleton>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         facingRight = rangedSkeleton.isFacingRight;
         if (!facingRight) {

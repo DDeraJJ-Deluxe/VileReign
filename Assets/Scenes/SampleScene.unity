@@ -26294,7 +26294,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5830892330604492097, guid: 4f83a491ddba76f468fb1f35ace61e7b, type: 3}
       propertyPath: m_TagString
-      value: Enemy
+      value: RangedSkeleton
       objectReference: {fileID: 0}
     - target: {fileID: 8602085776906500774, guid: 4f83a491ddba76f468fb1f35ace61e7b, type: 3}
       propertyPath: m_FlipX

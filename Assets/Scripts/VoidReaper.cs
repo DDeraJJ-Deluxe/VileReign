@@ -102,7 +102,7 @@ public class VoidReaper : MonoBehaviour {
     }
 
     private IEnumerator DelayForDamage() {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.6f);
         if (!isDead) {
             Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
 

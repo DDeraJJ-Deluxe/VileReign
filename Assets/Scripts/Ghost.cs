@@ -115,6 +115,14 @@ public class Ghost : MonoBehaviour
         } else {
             float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
             if (distanceToPlayer <= attackDistance) { // <12
+                if (transform.position.x > playerTransform.position.x) {
+                    isFacingRight = false;
+                    transform.localScale = new Vector3(6.26492f, 6.26492f, 6.26492f);
+                }
+                if (transform.position.x < playerTransform.position.x) {
+                    isFacingRight = true;
+                    transform.localScale = new Vector3(-6.26492f, 6.26492f, 6.26492f);
+                }
                 if (Time.time >= nextInvisibleTime) {
                     StartCoroutine(FadeOutIn());
                     nextInvisibleTime = Time.time + 20f;
