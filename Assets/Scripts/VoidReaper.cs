@@ -10,13 +10,13 @@ public class VoidReaper : MonoBehaviour {
     int currentHealth;
     public HealthBar healthBar;
 
-    public float moveSpeed = 3.5f;
+    public float moveSpeed = 3.25f;
 
     public Transform playerTransform;
     public bool isAttacking;
     public bool isFacingRight = false;
 
-    public float attackDistance = 15f;
+    public float attackDistance = 13f;
     public Transform attackPoint;
     public LayerMask playerLayer;
     public float attackRange = 1.5f;
@@ -30,8 +30,11 @@ public class VoidReaper : MonoBehaviour {
     public PlayerController playerController;
     public SpriteRenderer sr;
 
+    public Transform boundary;
+
     void Start() {
         healthBar.gameObject.SetActive(false);
+        boundary.GetComponent<Collider2D>().enabled = false;
         sr = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
@@ -50,6 +53,7 @@ public class VoidReaper : MonoBehaviour {
         playerController.GainExp(expDropped);
         isDead = true;
         animator.SetBool("isDead", true);
+        boundary.GetComponent<Collider2D>().enabled = false;
         GetComponent<Rigidbody2D>().isKinematic = true;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         GetComponent<Collider2D>().enabled = false;
@@ -61,6 +65,7 @@ public class VoidReaper : MonoBehaviour {
         float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
         if (distanceToPlayer <= attackDistance) {
             healthBar.gameObject.SetActive(true);
+            boundary.GetComponent<Collider2D>().enabled = true;
             if (transform.position.x > playerTransform.position.x) {
                 animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
                 transform.localScale = new Vector3(3.6f, 3.6f, 3.6f);
@@ -77,6 +82,9 @@ public class VoidReaper : MonoBehaviour {
                     nextAttackTime = Time.time + 1f / attackRate;
                 }
             }
+        }
+        if (distanceToPlayer > attackDistance) {
+            healthBar.gameObject.SetActive(false);
         }
     }
 
