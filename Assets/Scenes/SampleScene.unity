@@ -27117,7 +27117,7 @@ MonoBehaviour:
   playerController: {fileID: 241801289}
   sr: {fileID: 788284551}
   boundary: {fileID: 1304077860}
-  doubleJumpLocation: {fileID: 0}
+  doubleJumpLocation: {fileID: 96130324}
   doubleJumpPrefab: {fileID: 7234273056930488535, guid: 4ead2679cb4a99846a60b1f1ca9c0e67, type: 3}
 --- !u!1 &790598296
 GameObject:
