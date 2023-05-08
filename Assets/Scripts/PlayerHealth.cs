@@ -45,6 +45,10 @@ public class PlayerHealth : MonoBehaviour {
         }
     }
 
+    public void Heal() {
+        healthBar.SetHealth(maxHealth);
+    }
+
     void Die() {
         animator.SetBool("isDead", true);
         this.enabled = false;
