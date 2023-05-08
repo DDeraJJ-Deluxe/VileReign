@@ -16,7 +16,7 @@ public class VoidReaper : MonoBehaviour {
     public bool isAttacking;
     public bool isFacingRight = false;
 
-    public float attackDistance = 13f;
+    public float attackDistance = 15f;
     public Transform attackPoint;
     public LayerMask playerLayer;
     public float attackRange = 1.5f;

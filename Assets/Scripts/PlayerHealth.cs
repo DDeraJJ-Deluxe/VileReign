@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerHealth : MonoBehaviour {
     
     public int maxHealth = 100;
     public int health;
+    public int defense = 20;
+
+    [SerializeField] public TextMeshProUGUI defenseDisplay;
 
     public Animator animator;
 
@@ -19,12 +23,7 @@ public class PlayerHealth : MonoBehaviour {
     }
 
     void Update() {
-        if (gameObject.transform.position.y < -7 ){
-            SceneManager.LoadScene("SampleScene");
-        }
-        if (Input.GetKeyDown(KeyCode.E)) {
-            TakeDamage(20);
-        }
+        defenseDisplay.text = defense.ToString();
     }
 
     public void TakeDamage(int damage) {
@@ -33,8 +32,10 @@ public class PlayerHealth : MonoBehaviour {
             return;
         }
 
-        health -= damage;
-        AudioManager.instance.playerDamage.Play();
+        float actual_damage_float = (float)damage * ((float)(120 - defense) / 100.0f);
+        int actual_damage = (int)(actual_damage_float + 0.5f); // round to nearest integer
+
+        health -= actual_damage;
         StartCoroutine(DamageAnimation());
 
         healthBar.SetHealth(health);
@@ -79,4 +80,8 @@ public class PlayerHealth : MonoBehaviour {
 			yield return new WaitForSeconds(.1f);
 		}
 	}
+
+    public void IncreaseDefense(int increasedDefense) {
+        defense += increasedDefense;
+    }
 }

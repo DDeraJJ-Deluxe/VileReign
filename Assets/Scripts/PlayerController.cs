@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using TMPro;
 
 public class PlayerController : MonoBehaviour {
 
@@ -46,6 +47,8 @@ public class PlayerController : MonoBehaviour {
     public float attackRate = 2f;
     public float nextAttackTime = 0f;
 
+    [SerializeField] public TextMeshProUGUI attackDisplay;
+
     /* Sound Effects 
     public AudioSource takeDamage;
     public AudioSource sword;
@@ -71,6 +74,8 @@ public class PlayerController : MonoBehaviour {
     void Update() {
         WalkHandler(); // Handle player walking
         JumpHandler(); // Handle player jumping
+
+        attackDisplay.text = attackDamage.ToString();
 
         Vector3 cameraPosition = new Vector3(transform.position.x, transform.position.y, -20f); // Adjust camera position
         mainCamera.transform.position = cameraPosition;
@@ -244,5 +249,9 @@ public class PlayerController : MonoBehaviour {
         finalColor.a = 1f;
         sr.color = finalColor; // Apply the final color to the sprite
         isInvincible = false;
+    }
+
+    public void IncreaseAttack(int increasedAttack) {
+        attackDamage += increasedAttack;
     }
 }
