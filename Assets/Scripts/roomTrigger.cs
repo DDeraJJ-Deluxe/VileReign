@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
  
 public class roomTrigger : MonoBehaviour
 {
-    public int sceneBuildIndex;
+    public GameObject virtualCam;
  
     // Level move zoned enter, if collider is a player
     // Move game to another scene
@@ -14,10 +14,24 @@ public class roomTrigger : MonoBehaviour
         
         // Could use other.GetComponent<Player>() to see if the game object has a Player component
         // Tags work too. Maybe some players have different script components?
-        if(other.tag == "Player") {
+        if(other.tag == "Player" && !other.isTrigger) {
             // Player entered, so move level
-            print("Switching Scene to " + sceneBuildIndex);
-            SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
+            //print("Switching Scene to " + sceneBuildIndex);
+            //SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
+            virtualCam.SetActive(true);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other) {
+        print("Trigger Entered");
+        
+        // Could use other.GetComponent<Player>() to see if the game object has a Player component
+        // Tags work too. Maybe some players have different script components?
+        if(other.tag == "Player" && !other.isTrigger) {
+            // Player entered, so move level
+            //print("Switching Scene to " + sceneBuildIndex);
+            //SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
+            virtualCam.SetActive(false);
         }
     }
 }
