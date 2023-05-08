@@ -28,6 +28,7 @@ public class VoidReaper : MonoBehaviour {
     public int expDropped = 250;
 
     public PlayerController playerController;
+    public PlayerHealth playerHealth;
     public SpriteRenderer sr;
 
     public Transform boundary;
@@ -53,6 +54,7 @@ public class VoidReaper : MonoBehaviour {
 
     void Die() {
         playerController.GainExp(expDropped);
+        playerHealth.Heal();
         isDead = true;
         animator.SetBool("isDead", true);
         boundary.GetComponent<Collider2D>().enabled = false;
@@ -103,7 +105,7 @@ public class VoidReaper : MonoBehaviour {
     }
 
     private IEnumerator DelayForDamage() {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.4f);
         if (!isDead) {
             Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
 

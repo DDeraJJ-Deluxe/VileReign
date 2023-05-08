@@ -24913,7 +24913,7 @@ GameObject:
   - component: {fileID: 83371381}
   - component: {fileID: 83371383}
   - component: {fileID: 83371382}
-  m_Layer: 11
+  m_Layer: 3
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25068,7 +25068,7 @@ GameObject:
   - component: {fileID: 114527592}
   - component: {fileID: 114527594}
   - component: {fileID: 114527593}
-  m_Layer: 11
+  m_Layer: 3
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25388,7 +25388,7 @@ GameObject:
   - component: {fileID: 145803806}
   - component: {fileID: 145803808}
   - component: {fileID: 145803807}
-  m_Layer: 11
+  m_Layer: 3
   m_Name: Health Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25603,7 +25603,7 @@ MonoBehaviour:
   jumpHeight: 3
   cancelRate: 100
   unlockedDoubleJump: 0
-  unlockedSwordBeam: 1
+  unlockedSwordBeam: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -26906,7 +26906,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5830892330604492097, guid: 4f83a491ddba76f468fb1f35ace61e7b, type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5830892330604492097, guid: 4f83a491ddba76f468fb1f35ace61e7b, type: 3}
       propertyPath: m_TagString
@@ -27334,7 +27334,7 @@ GameObject:
   - component: {fileID: 523248664}
   - component: {fileID: 523248663}
   - component: {fileID: 523248662}
-  m_Layer: 11
+  m_Layer: 3
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28600,6 +28600,7 @@ MonoBehaviour:
   attackRate: 1
   expDropped: 250
   playerController: {fileID: 241801289}
+  playerHealth: {fileID: 241801288}
   sr: {fileID: 788284551}
   boundary: {fileID: 1304077860}
   doubleJumpLocation: {fileID: 96130324}
@@ -29895,7 +29896,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1187422907}
-  m_Layer: 11
+  m_Layer: 3
   m_Name: LaunchPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30322,7 +30323,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3020863971693195636, guid: 22ad4f8fac09a904aae36681b2883f6a, type: 3}
       propertyPath: m_Name
-      value: Boss
+      value: VoidReaper
       objectReference: {fileID: 0}
     - target: {fileID: 3020863971693195636, guid: 22ad4f8fac09a904aae36681b2883f6a, type: 3}
       propertyPath: m_Layer
