@@ -34,7 +34,9 @@ public class PlayerHealth : MonoBehaviour {
 
         float actual_damage_float = (float)damage * ((float)(120 - defense) / 100.0f);
         int actual_damage = (int)(actual_damage_float + 0.5f); // round to nearest integer
-
+        if (actual_damage == 0) {
+            actual_damage = 1;
+        }
         health -= actual_damage;
         StartCoroutine(DamageAnimation());
 

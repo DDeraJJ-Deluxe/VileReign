@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 56078714}
   - component: {fileID: 56078716}
   - component: {fileID: 56078715}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BackWalls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24988,7 +24988,7 @@ GameObject:
   m_Component:
   - component: {fileID: 92636503}
   - component: {fileID: 92636502}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25147,7 +25147,7 @@ GameObject:
   - component: {fileID: 125637844}
   - component: {fileID: 125637843}
   - component: {fileID: 125637842}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Platforms (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25606,7 +25606,7 @@ MonoBehaviour:
   unlockedSwordBeam: 0
   groundLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 640
   feetPosition: {fileID: 723114821}
   groundCheckCircle: 0.3
   dodging: 0
@@ -25797,7 +25797,7 @@ GameObject:
   - component: {fileID: 301547429}
   - component: {fileID: 301547428}
   - component: {fileID: 301547427}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Platforms (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26117,7 +26117,7 @@ GameObject:
   - component: {fileID: 340246560}
   - component: {fileID: 340246559}
   - component: {fileID: 340246558}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Platforms (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26162,7 +26162,7 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 8191
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
@@ -26846,7 +26846,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3113492517085048038, guid: 4f83a491ddba76f468fb1f35ace61e7b, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3113492517085048038, guid: 4f83a491ddba76f468fb1f35ace61e7b, type: 3}
       propertyPath: m_LocalScale.x
@@ -26932,7 +26932,7 @@ GameObject:
   - component: {fileID: 474529319}
   - component: {fileID: 474529318}
   - component: {fileID: 474529317}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Platforms (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27546,7 +27546,7 @@ GameObject:
   - component: {fileID: 577193252}
   - component: {fileID: 577193251}
   - component: {fileID: 577193250}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Platforms (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28032,7 +28032,7 @@ GameObject:
   - component: {fileID: 670332480}
   - component: {fileID: 670332479}
   - component: {fileID: 670332478}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Platforms (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28584,6 +28584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 788284552}
+  projectilePrefab: {fileID: 4435851620215059542, guid: 4627d307a4278724fb143899abd412c5, type: 3}
   maxHealth: 750
   healthBar: {fileID: 406278593}
   moveSpeed: 3.25
@@ -28598,6 +28599,8 @@ MonoBehaviour:
   attackRange: 1.5
   attackDamage: 15
   attackRate: 1
+  castRate: 10
+  isCasting: 0
   expDropped: 250
   playerController: {fileID: 241801289}
   playerHealth: {fileID: 241801288}
@@ -28968,7 +28971,7 @@ GameObject:
   - component: {fileID: 921425724}
   - component: {fileID: 921425723}
   - component: {fileID: 921425727}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Platforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29207,7 +29210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 944150454}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Every single platform, LOL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29345,7 +29348,7 @@ GameObject:
   - component: {fileID: 1059220161}
   - component: {fileID: 1059220160}
   - component: {fileID: 1059220159}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Platforms (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30008,7 +30011,7 @@ GameObject:
   - component: {fileID: 1213870268}
   - component: {fileID: 1213870267}
   - component: {fileID: 1213870266}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Platforms (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30409,7 +30412,7 @@ GameObject:
   - component: {fileID: 1285286429}
   - component: {fileID: 1285286428}
   - component: {fileID: 1285286427}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Platforms (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42856,7 +42859,7 @@ GameObject:
   - component: {fileID: 1578587662}
   - component: {fileID: 1578587661}
   - component: {fileID: 1578587660}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Platforms (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43425,7 +43428,7 @@ RectTransform:
   - {fileID: 2111234831}
   - {fileID: 406278592}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -43446,7 +43449,7 @@ GameObject:
   - component: {fileID: 1686231323}
   - component: {fileID: 1686231322}
   - component: {fileID: 1686231321}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Platforms (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43842,7 +43845,7 @@ GameObject:
   - component: {fileID: 1724017124}
   - component: {fileID: 1724017123}
   - component: {fileID: 1724017122}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Platforms (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44154,7 +44157,7 @@ GameObject:
   - component: {fileID: 1738726010}
   - component: {fileID: 1738726009}
   - component: {fileID: 1738726008}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Platforms (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44388,7 +44391,7 @@ GameObject:
   - component: {fileID: 1758191129}
   - component: {fileID: 1758191128}
   - component: {fileID: 1758191127}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Platforms (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44952,7 +44955,7 @@ GameObject:
   - component: {fileID: 1954168765}
   - component: {fileID: 1954168764}
   - component: {fileID: 1954168763}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Platforms (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45273,7 +45276,7 @@ GameObject:
   - component: {fileID: 2024505420}
   - component: {fileID: 2024505422}
   - component: {fileID: 2024505421}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: Decorations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46796,7 +46799,7 @@ GameObject:
   - component: {fileID: 2128931558}
   - component: {fileID: 2128931557}
   - component: {fileID: 2128931556}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Platforms (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46841,7 +46844,7 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 8191
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
