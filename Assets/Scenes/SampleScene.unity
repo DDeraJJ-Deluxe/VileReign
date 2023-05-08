@@ -28597,7 +28597,7 @@ MonoBehaviour:
     m_Bits: 64
   attackRange: 1.5
   attackDamage: 15
-  attackRate: 0.5
+  attackRate: 1
   expDropped: 250
   playerController: {fileID: 241801289}
   sr: {fileID: 788284551}

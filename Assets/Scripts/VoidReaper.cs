@@ -70,12 +70,12 @@ public class VoidReaper : MonoBehaviour {
         if (distanceToPlayer <= attackDistance) {
             healthBar.gameObject.SetActive(true);
             boundary.GetComponent<Collider2D>().enabled = true;
-            if (transform.position.x > playerTransform.position.x) {
+            if (transform.position.x > playerTransform.position.x && !isAttacking) {
                 animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
                 transform.localScale = new Vector3(3.6f, 3.6f, 3.6f);
                 transform.position += Vector3.left * moveSpeed * Time.deltaTime;
             }
-            if (transform.position.x < playerTransform.position.x) {
+            if (transform.position.x < playerTransform.position.x && !isAttacking) {
                 animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
                 transform.localScale = new Vector3(-3.6f, 3.6f, 3.6f);
                 transform.position += Vector3.right * moveSpeed * Time.deltaTime;
@@ -93,6 +93,7 @@ public class VoidReaper : MonoBehaviour {
     }
 
     public void Attack() {
+        isAttacking = true;
         animator.SetTrigger("Attack");
         StartCoroutine(DelayForDamage());
     }
@@ -102,7 +103,7 @@ public class VoidReaper : MonoBehaviour {
     }
 
     private IEnumerator DelayForDamage() {
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.5f);
         if (!isDead) {
             Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
 
@@ -110,6 +111,8 @@ public class VoidReaper : MonoBehaviour {
                 player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
             }
         }
+        yield return new WaitForSeconds(0.3f);
+        isAttacking = false;
     }
 
     void RevealDoubleJump() {
