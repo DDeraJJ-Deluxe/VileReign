@@ -9,6 +9,7 @@ TagManager:
   - Ghost
   - DoubleJump
   - RangedSkeleton
+  - SwordBeam
   layers:
   - Default
   - TransparentFX

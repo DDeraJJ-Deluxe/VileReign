@@ -5,13 +5,13 @@ using UnityEngine;
 public class FallenHero : MonoBehaviour {
 
     public Animator animator;
-    public GameObject projectilePrefab;
+    //public GameObject projectilePrefab;
 
     public int maxHealth = 1000;
     int currentHealth;
     public HealthBar healthBar;
 
-    public float moveSpeed = 3.75f;
+    public float moveSpeed = 4f;
 
     public Transform playerTransform;
     public bool isAttacking;
@@ -20,9 +20,9 @@ public class FallenHero : MonoBehaviour {
     public float attackDistance = 16f;
     public Transform attackPoint;
     public LayerMask playerLayer;
-    public float attackRange = 0.4f;
+    public float attackRange = 0.5f;
     public int attackDamage = 20;
-    public float attackRate = 0.5f;
+    public float attackRate = 1f;
     private float nextAttackTime = 0f;
     
     public float castRate = 10f;
@@ -32,6 +32,14 @@ public class FallenHero : MonoBehaviour {
     private bool isDead = false;
     public int expDropped = 500;
 
+    public bool dodging = false;
+    private float dodgeTimeRemaining = 0f;
+    public float dodgeDuration = 0.125f;
+    public float dodgeSpeed = 24f;
+    public float dodgeRate = 0.2f;
+    float nextDodgeTime = 0f;
+    public bool isInvincible = false;
+
     public PlayerController playerController;
     public PlayerHealth playerHealth;
     public SpriteRenderer sr;
@@ -40,7 +48,10 @@ public class FallenHero : MonoBehaviour {
     public Transform swordBeamLocation;
     public GameObject swordBeamPrefab;
 
+    Rigidbody2D rb;
+
     void Start() {
+        rb = GetComponent<Rigidbody2D>();
         healthBar.gameObject.SetActive(false);
         boundary.GetComponent<Collider2D>().enabled = false;
         sr = GetComponent<SpriteRenderer>();
@@ -49,12 +60,14 @@ public class FallenHero : MonoBehaviour {
     }
 
     public void TakeDamage(int damage) {
+        if (isInvincible) {
+            return;
+        }
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
         if (currentHealth <= 0) {
             Die();
         }
-
     }
 
     void Die() {
@@ -77,19 +90,48 @@ public class FallenHero : MonoBehaviour {
         if (distanceToPlayer <= attackDistance) {
             healthBar.gameObject.SetActive(true);
             boundary.GetComponent<Collider2D>().enabled = true;
-            if (transform.position.x > playerTransform.position.x && !isAttacking) {
-                animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
-                transform.localScale = new Vector3(3.6f, 3.6f, 3.6f);
-                transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+            if (dodging) {
+                if (transform.position.x < playerTransform.position.x && !isAttacking) { 
+                    animator.SetFloat("Speed", Mathf.Abs(dodgeSpeed));
+                    rb.velocity = new Vector2(-dodgeSpeed, rb.velocity.y); // Apply dodge speed to player if dodging
+                }
+                if (transform.position.x > playerTransform.position.x && !isAttacking) {
+                    animator.SetFloat("Speed", Mathf.Abs(dodgeSpeed));
+                    rb.velocity = new Vector2(dodgeSpeed, rb.velocity.y);
+                }
+            } else {
+                if (!isDead) {
+                    if (transform.position.x > playerTransform.position.x && !isAttacking) {
+                        animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
+                        transform.localScale = new Vector3(-3.942011f, 3.942011f, 3.942011f);
+                        transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+                    }
+                    if (transform.position.x < playerTransform.position.x && !isAttacking) {
+                        animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
+                        transform.localScale = new Vector3(3.942011f, 3.942011f, 3.942011f);
+                        transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+                    }
+                }
             }
-            if (transform.position.x < playerTransform.position.x && !isAttacking) {
-                animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
-                transform.localScale = new Vector3(-3.6f, 3.6f, 3.6f);
-                transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+
+            if (dodging) { // Duration during dodge
+                dodgeTimeRemaining -= Time.deltaTime;
+                if (dodgeTimeRemaining <= 0) {
+                    dodging = false;
+                }
             }
-            if (distanceToPlayer <= 2.5f) { // <1
+
+            if (distanceToPlayer <= 1f) { // <1
+                if (Time.time >= nextDodgeTime) {
+                    if (!isDead) { // If left shift key is pressed while moving horizontally
+                        dodging = true;
+                        dodgeTimeRemaining = dodgeDuration;
+                        StartCoroutine(FadeOutIn(dodgeDuration));
+                        nextDodgeTime = Time.time + 1f / dodgeRate;
+                    }
+                }
                 if (Time.time >= nextAttackTime) {
-                    Attack();
+                    animator.SetTrigger("Attack");
                     nextAttackTime = Time.time + 1f / attackRate;
                 }
             }
@@ -152,12 +194,6 @@ public class FallenHero : MonoBehaviour {
 
     public void Attack() {
         isAttacking = true;
-        animator.SetTrigger("Attack");
-        StartCoroutine(DelayForDamage());
-    }
-
-    private IEnumerator DelayForDamage() {
-        yield return new WaitForSeconds(0.4f);
         if (!isDead) {
             Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
 
@@ -165,6 +201,10 @@ public class FallenHero : MonoBehaviour {
                 player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
             }
         }
+        StartCoroutine(DelayForDamage());
+    }
+
+    private IEnumerator DelayForDamage() {
         yield return new WaitForSeconds(0.3f);
         isAttacking = false;
     }
@@ -173,12 +213,34 @@ public class FallenHero : MonoBehaviour {
         Instantiate(swordBeamPrefab, swordBeamLocation.position, Quaternion.identity);
     }
 
-    void CreateProjectile() {
-        Vector3 spawnPosition = playerTransform.position + new Vector3(0f, 8f, 0f);
-        Instantiate(projectilePrefab, spawnPosition, Quaternion.identity);
-    }
+    /* Fades out and in for a given duration */
+    IEnumerator FadeOutIn(float duration) {
+        isInvincible = true;
+        float fadeOutDuration = duration / 2f; // Divide the total duration in half to get the time to fade out and back in
+        float alpha = 1f;
+        while (alpha > 0.5f) // Fade out
+        {
+            alpha -= Time.deltaTime / fadeOutDuration; // Decrease the alpha value over time
+            Color color = sr.color;
+            color.a = alpha;
+            sr.color = color;
+            yield return null; // Wait for the next frame
+        }
 
-    public void setIsCasting() {
-        isCasting = !isCasting;
+        alpha = 0.5f; // Set the starting alpha value to 0 for the fade in
+        yield return new WaitForSeconds(fadeOutDuration); // Wait for the duration of the fade out
+
+        while (alpha < 1f) // Fade in
+        {
+            alpha += Time.deltaTime / fadeOutDuration; // Increase the alpha value over time
+            Color color = sr.color;
+            color.a = alpha;
+            sr.color = color;
+            yield return null; // Wait for the next frame
+        }
+        Color finalColor = sr.color;
+        finalColor.a = 1f;
+        sr.color = finalColor; // Apply the final color to the sprite
+        isInvincible = false;
     }
 }

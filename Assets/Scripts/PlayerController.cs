@@ -47,6 +47,8 @@ public class PlayerController : MonoBehaviour {
     public float attackRate = 2f;
     public float nextAttackTime = 0f;
 
+    public bool isDead = false;
+
     [SerializeField] public TextMeshProUGUI attackDisplay;
 
     /* Sound Effects 
@@ -81,7 +83,7 @@ public class PlayerController : MonoBehaviour {
         mainCamera.transform.position = cameraPosition;
 
         if (Time.time >= nextDodgeTime) {
-            if (Input.GetKeyDown(KeyCode.LeftShift)) { // If left shift key is pressed while moving horizontally
+            if (Input.GetKeyDown(KeyCode.LeftShift) && !isDead) { // If left shift key is pressed while moving horizontally
                 dodging = true;
                 dodgeTimeRemaining = dodgeDuration;
                 StartCoroutine(FadeOutIn(dodgeDuration));
@@ -92,21 +94,27 @@ public class PlayerController : MonoBehaviour {
         }
 
         if (Time.time >= nextAttackTime) {
-            if (Input.GetKeyDown(KeyCode.Mouse0)) {
+            if (Input.GetKeyDown(KeyCode.Mouse0) && !isDead) {
                 Attack();
                 projectileLaunch.Attack();
                 nextAttackTime = Time.time + 1f / attackRate;
             }
+        }
+
+        if (isDead) {
+            rb.isKinematic = true;
+            rb.velocity = Vector2.zero;
+            coll.enabled = false;
         }
     }
 
     void WalkHandler() {
         float horizontalInput = Input.GetAxisRaw("Horizontal"); // Input on horizontal axis
         animator.SetFloat("Speed", Mathf.Abs(horizontalInput));
-        if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) && !isFacingRight) {
+        if ((Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) && !isFacingRight && !isDead) {
             Flip();
         }
-        else if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) && isFacingRight) {
+        else if ((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) && isFacingRight && !isDead) {
             Flip();
         }
 
@@ -117,8 +125,10 @@ public class PlayerController : MonoBehaviour {
                 rb.velocity = new Vector2(dodgeSpeed, rb.velocity.y);
             }
         } else {
-            Vector2 velocity = new Vector2(horizontalInput * walkSpeed, rb.velocity.y); // Calculate player's velocity based on input and walk speed
-            rb.velocity = velocity; // Apply velocity to player's rigidbody
+            if (!isDead) {
+                Vector2 velocity = new Vector2(horizontalInput * walkSpeed, rb.velocity.y); // Calculate player's velocity based on input and walk speed
+                rb.velocity = velocity; // Apply velocity to player's rigidbody
+            }
         }
 
         if (dodging) { // Duration during dodge
@@ -132,7 +142,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     void JumpHandler() { 
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space) && !isDead) {
             isGrounded = Physics2D.OverlapCircle(feetPosition.position, groundCheckCircle, groundLayer);
             if (isGrounded) {
                 jumpCount = 0;
@@ -149,7 +159,7 @@ public class PlayerController : MonoBehaviour {
         }
         if (jumping) {
             jumpTime += Time.deltaTime;
-            if (Input.GetKeyUp(KeyCode.Space)) {
+            if (Input.GetKeyUp(KeyCode.Space) && !isDead) {
                 animator.SetBool("isJumping", false);
                 jumpCancelled = true;
             }
@@ -219,6 +229,11 @@ public class PlayerController : MonoBehaviour {
         if (collider.gameObject.tag == "DoubleJump") 
         { 
             unlockedDoubleJump = true;
+            Destroy(collider.gameObject);  
+        }
+        if (collider.gameObject.tag == "SwordBeam") 
+        { 
+            unlockedSwordBeam = true;
             Destroy(collider.gameObject);  
         }
     }

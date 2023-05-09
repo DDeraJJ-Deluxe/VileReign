@@ -25664,7 +25664,7 @@ MonoBehaviour:
   unlockedSwordBeam: 0
   groundLayer:
     serializedVersion: 2
-    m_Bits: 640
+    m_Bits: 648
   feetPosition: {fileID: 723114821}
   groundCheckCircle: 0.3
   dodging: 0
@@ -25681,6 +25681,7 @@ MonoBehaviour:
   attackDamage: 20
   attackRate: 2
   nextAttackTime: 0
+  isDead: 0
   attackDisplay: {fileID: 1611266027}
   projectileLaunch: {fileID: 241801297}
   sr: {fileID: 241801293}
@@ -25801,11 +25802,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8663608204890007216, guid: 3bbc091ed90e3c74c957f1ab88eeba42, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 46.9
+      value: -12.488
       objectReference: {fileID: 0}
     - target: {fileID: 8663608204890007216, guid: 3bbc091ed90e3c74c957f1ab88eeba42, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.53
+      value: 14.513
       objectReference: {fileID: 0}
     - target: {fileID: 8663608204890007216, guid: 3bbc091ed90e3c74c957f1ab88eeba42, type: 3}
       propertyPath: m_LocalPosition.z
@@ -25865,7 +25866,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288627118}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.47, y: 14.45, z: 0.847661}
+  m_LocalPosition: {x: -29.5, y: 14.5, z: 0.847661}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28773,6 +28774,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 671841029}
   m_CullTransparentMesh: 1
+--- !u!1 &674971170
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 674971171}
+  m_Layer: 3
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &674971171
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674971170}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.13, y: -0.042, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2049695516}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &723114820
 GameObject:
   m_ObjectHideFlags: 0
@@ -46910,12 +46942,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_GravityScale: 5
+  m_Material: {fileID: 6200000, guid: d747b2501b5b19f4badb493a735c6516, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &2049695513
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -46942,6 +46974,62 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.11985108, y: 0.18922086}
   m_EdgeRadius: 0
+--- !u!95 &2049695514 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1856089855280375384, guid: 2ec38a45069149f41918e6fd89b04b1a, type: 3}
+  m_PrefabInstance: {fileID: 1748795908}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &2049695515 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8739951946903406234, guid: 2ec38a45069149f41918e6fd89b04b1a, type: 3}
+  m_PrefabInstance: {fileID: 1748795908}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2049695516 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7550160579855984516, guid: 2ec38a45069149f41918e6fd89b04b1a, type: 3}
+  m_PrefabInstance: {fileID: 1748795908}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2049695517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049695511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82cb7d35e7dd00944aa865ccbda7dd59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 2049695514}
+  maxHealth: 1000
+  healthBar: {fileID: 988806007}
+  moveSpeed: 4
+  playerTransform: {fileID: 241801294}
+  isAttacking: 0
+  isFacingRight: 0
+  attackDistance: 16
+  attackPoint: {fileID: 674971171}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  attackRange: 0.5
+  attackDamage: 20
+  attackRate: 1
+  castRate: 10
+  isCasting: 0
+  expDropped: 500
+  dodging: 0
+  dodgeDuration: 0.125
+  dodgeSpeed: 24
+  dodgeRate: 0.2
+  isInvincible: 0
+  playerController: {fileID: 241801289}
+  playerHealth: {fileID: 241801288}
+  sr: {fileID: 2049695515}
+  boundary: {fileID: 168117195}
+  swordBeamLocation: {fileID: 288627119}
+  swordBeamPrefab: {fileID: 8960238862165558275, guid: e945ec3fc074ab648bf6ef73046cb6af, type: 3}
 --- !u!1 &2054839968
 GameObject:
   m_ObjectHideFlags: 0

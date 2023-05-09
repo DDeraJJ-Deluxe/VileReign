@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7234273056930488535
+--- !u!1 &8960238862165558275
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7234273056930488532}
-  - component: {fileID: 7234273056930488533}
-  - component: {fileID: 7234273056930488534}
-  - component: {fileID: 7234273056930488531}
-  m_Layer: 12
-  m_Name: DoubleJump
-  m_TagString: DoubleJump
+  - component: {fileID: 3111777303690257105}
+  - component: {fileID: 3690318121894795774}
+  - component: {fileID: 5350385146319192898}
+  - component: {fileID: 8031961190245859356}
+  m_Layer: 0
+  m_Name: SwordBeam2
+  m_TagString: SwordBeam
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7234273056930488532
+--- !u!4 &3111777303690257105
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7234273056930488535}
+  m_GameObject: {fileID: 8960238862165558275}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 65.505, y: 6.61, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: -29.5, y: 14.56, z: 0}
+  m_LocalScale: {x: 0.20115918, y: 0.20115918, z: 0.20115918}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &7234273056930488533
+--- !u!212 &3690318121894795774
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7234273056930488535}
+  m_GameObject: {fileID: 8960238862165558275}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -75,24 +75,40 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4e9a51c87b89955408121593af6be122, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b8362bfe757ea874f8c6f657af8f1fd4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 5.12, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7234273056930488534
+--- !u!70 &5350385146319192898
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8960238862165558275}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.06443349, y: -0.048323933}
+  m_Size: {x: 3.1870658, y: 3.9924588}
+  m_Direction: 0
+--- !u!114 &8031961190245859356
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7234273056930488535}
+  m_GameObject: {fileID: 8960238862165558275}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19175153585dd1e49a4dd60a2ec5df80, type: 3}
@@ -100,19 +116,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverDistance: 0.1
   hoverSpeed: 1.5
---- !u!58 &7234273056930488531
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7234273056930488535}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.000015258789, y: -0.13506758}
-  serializedVersion: 2
-  m_Radius: 0.7185999
