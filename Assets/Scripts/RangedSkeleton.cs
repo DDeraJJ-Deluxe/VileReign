@@ -61,7 +61,7 @@ public class RangedSkeleton : MonoBehaviour {
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                 animator.SetFloat("Speed", 0);
                 if (Time.time >= nextAttackTime) {
-                    Attack();
+                    animator.SetTrigger("Attack");
                     nextAttackTime = Time.time + 1f / attackRate;
                 }
             }
@@ -78,7 +78,7 @@ public class RangedSkeleton : MonoBehaviour {
                     transform.position += Vector3.left * moveSpeed * Time.deltaTime;
                 }
                 if (Time.time >= nextAttackTime) {
-                    Attack();
+                    animator.SetTrigger("Attack");
                     nextAttackTime = Time.time + 1f / attackRate;
                 }
             }
@@ -110,12 +110,6 @@ public class RangedSkeleton : MonoBehaviour {
     }
 
     public void Attack() {
-        animator.SetTrigger("Attack");
-        StartCoroutine(DelayForAttack());
-    }
-
-    private IEnumerator DelayForAttack() {
-        yield return new WaitForSeconds(1.77f);
         if (!isDead) {
             Instantiate(projectilePrefab, launchPoint.position, Quaternion.identity);
         }

@@ -89,7 +89,7 @@ public class Ghost : MonoBehaviour
                     nextInvisibleTime = Time.time + 20f;
                 }
                 if (Time.time >= nextAttackTime) {
-                    Attack();
+                    animator.SetTrigger("Attack");
                     nextAttackTime = Time.time + 1f / attackRate;
                 }
             }
@@ -104,7 +104,7 @@ public class Ghost : MonoBehaviour
                     transform.localScale = new Vector3(-6.26492f, 6.26492f, 6.26492f);
                 }
                 if (Time.time >= nextAttackTime) {
-                    Attack2();
+                    animator.SetTrigger("Attack");
                     nextAttackTime = Time.time + 1f / attackRate;
                 }
             }
@@ -135,29 +135,16 @@ public class Ghost : MonoBehaviour
     }
 
     public void Attack() {
-        animator.SetTrigger("Attack");
-        StartCoroutine(DelayForAttack());
-    }
-
-    public void Attack2() {
-        animator.SetTrigger("Attack");
-        StartCoroutine(DelayForDamage());
-    }
-
-    private IEnumerator DelayForAttack() {
-        yield return new WaitForSeconds(1.8f);
+        float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
         if (!isDead && !isInvisible) {
-            Instantiate(projectilePrefab, launchPoint.position, Quaternion.identity);
-        }
-    }
+            if (distanceToPlayer <= attackDistance && distanceToPlayer > 1f && !isInvisible) {
+                Instantiate(projectilePrefab, launchPoint.position, Quaternion.identity);
+            } else if (distanceToPlayer <= 1f && !isInvisible) {
+                Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
 
-    private IEnumerator DelayForDamage() {
-        yield return new WaitForSeconds(0.5f);
-        if (!isDead && !isInvisible) {
-            Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
-
-            foreach(Collider2D player in hitPlayer) {
-                player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+                foreach(Collider2D player in hitPlayer) {
+                    player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
+                }
             }
         }
     }
