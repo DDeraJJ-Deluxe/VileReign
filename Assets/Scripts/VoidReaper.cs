@@ -156,8 +156,10 @@ public class VoidReaper : MonoBehaviour {
     }
 
     void CreateProjectile() {
-        Vector3 spawnPosition = playerTransform.position + new Vector3(0f, 8f, 0f);
-        Instantiate(projectilePrefab, spawnPosition, Quaternion.identity);
+        if (!isDead) {
+            Vector3 spawnPosition = playerTransform.position + new Vector3(0f, 8f, 0f);
+            Instantiate(projectilePrefab, spawnPosition, Quaternion.identity);
+        }
     }
 
     public void setIsCasting() {

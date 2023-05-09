@@ -9,7 +9,6 @@ TagManager:
   - Ghost
   - DoubleJump
   - RangedSkeleton
-  - VoidReaper
   layers:
   - Default
   - TransparentFX

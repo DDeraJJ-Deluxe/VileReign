@@ -204,6 +204,9 @@ public class PlayerController : MonoBehaviour {
             if (enemy.GetComponent<VoidReaper>() != null) {
                 enemy.GetComponent<VoidReaper>().TakeDamage(attackDamage);
             }
+            if (enemy.GetComponent<FallenHero>() != null) {
+                enemy.GetComponent<FallenHero>().TakeDamage(attackDamage);
+            }
         }
     }
 
