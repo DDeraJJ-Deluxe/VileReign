@@ -22,7 +22,9 @@ public class VileusProjectile : MonoBehaviour {
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("VileusProjectile"), LayerMask.NameToLayer("Platform"), true);
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("VileusProjectile"), LayerMask.NameToLayer("Ground"), true);
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("VileusProjectile"), LayerMask.NameToLayer("Ghost"), true);
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("VileusProjectile"), LayerMask.NameToLayer("PlayersEnemies"), true);
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("VileusProjectile"), LayerMask.NameToLayer("Ignore Raycast"), true);
         facingRight = lordVileus.isFacingRight;
         if (!facingRight) {
             transform.rotation = Quaternion.Euler(0, 180, 0);

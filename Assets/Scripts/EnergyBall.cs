@@ -21,6 +21,7 @@ public class EnergyBall : MonoBehaviour
         ghost = GameObject.FindGameObjectWithTag("Ghost").GetComponent<Ghost>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("EnergyBall"), LayerMask.NameToLayer("PlayersEnemies"), true);
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("EnergyBall"), LayerMask.NameToLayer("Ghost"), true);
         facingRight = ghost.isFacingRight;
         if (!facingRight) {
             transform.rotation = Quaternion.Euler(0, 180, 0);

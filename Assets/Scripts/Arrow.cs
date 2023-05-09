@@ -19,6 +19,7 @@ public class Arrow : MonoBehaviour
         projectileCount = projectileLife;
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Arrow"), LayerMask.NameToLayer("PlayersEnemies"), true);
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Arrow"), LayerMask.NameToLayer("Ghost"), true);
 
         if (playerTransform.position.x < transform.position.x) {
             transform.rotation = Quaternion.Euler(0, 180, 0);

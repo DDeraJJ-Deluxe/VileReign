@@ -17,7 +17,9 @@ public class VoidProjectile : MonoBehaviour {
         projectileRb.velocity = new Vector2(0f, -speed);
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("VoidProjectile"), LayerMask.NameToLayer("Platform"), true);
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("VoidProjectile"), LayerMask.NameToLayer("Ground"), true);
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("VoidProjectile"), LayerMask.NameToLayer("Ghost"), true);
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("VoidProjectile"), LayerMask.NameToLayer("PlayersEnemies"), true);
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("VoidProjectile"), LayerMask.NameToLayer("Ignore Raycast"), true);
     }
 
     void Update() {
