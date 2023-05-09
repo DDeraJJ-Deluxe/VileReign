@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using UnityEngine.UI;
 using TMPro;
 
 public class PlayerController : MonoBehaviour {
@@ -69,7 +70,14 @@ public class PlayerController : MonoBehaviour {
 
     public Camera mainCamera; // Reference to the main camera
 
+    public Image doubleJump;
+    public Image swordBeamSlot;
+    public Image swordBeam;
+
     void Start() {
+        doubleJump.gameObject.SetActive(false);
+        swordBeamSlot.gameObject.SetActive(false);
+        swordBeam.gameObject.SetActive(false);
         rb = GetComponent<Rigidbody2D>(); // Get the player's rigidbody component
         coll = GetComponent<Collider2D>(); // Get the player's collider object
         sr = GetComponent<SpriteRenderer>();
@@ -235,11 +243,14 @@ public class PlayerController : MonoBehaviour {
         if (collider.gameObject.tag == "DoubleJump") 
         { 
             unlockedDoubleJump = true;
+            doubleJump.gameObject.SetActive(true);
             Destroy(collider.gameObject);  
         }
         if (collider.gameObject.tag == "SwordBeam") 
         { 
             unlockedSwordBeam = true;
+            swordBeamSlot.gameObject.SetActive(true);
+            swordBeam.gameObject.SetActive(true);
             Destroy(collider.gameObject);  
         }
     }
