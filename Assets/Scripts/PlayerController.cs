@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour {
         }
 
         if (Time.time >= nextAttackTime) {
-            if (Input.GetKeyDown(KeyCode.Mouse0) && !isDead) {
+            if ((Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter)) && !isDead) {
                 Attack();
                 projectileLaunch.Attack();
                 nextAttackTime = Time.time + 1f / attackRate;

@@ -31,7 +31,7 @@ public class LordVileus : MonoBehaviour {
     float nextAttackTime = 0f;
     public bool isAttacking = false;
 
-    public float castRate = 0.8f;
+    public float castRate = 0.2f;
     private float nextCastTime = 0f;
     public bool isCasting = false;
 
@@ -83,25 +83,33 @@ public class LordVileus : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if ((float)currentHealth <= (float)(maxHealth * 0.5f)) {
+            castRate = 0.5f;
+        } else if ((float)currentHealth <= (float)(maxHealth * 0.75f)) {
+            castRate = 0.3f;
+        }
+
         float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
         if (distanceToPlayer <= attackDistance) {
             healthBar.gameObject.SetActive(true);
             boundary.GetComponent<Collider2D>().enabled = true;
-            animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
-            transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, moveSpeed * Time.deltaTime);
-            if (transform.position.x > playerTransform.position.x && !isAttacking) {
+            if (!isSummoning && !isCasting) {
+                animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
+                transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, moveSpeed * Time.deltaTime);
+            }
+            if (transform.position.x > playerTransform.position.x) {
                 isFacingRight = false;
                 transform.localScale = new Vector3(6.543f, 6.543f, 6.543f);
             }
-            if (transform.position.x < playerTransform.position.x && !isAttacking) {
+            if (transform.position.x < playerTransform.position.x) {
                 isFacingRight = true;
                 transform.localScale = new Vector3(-6.543f, 6.543f, 6.543f);
             }
-            if (Time.time >= nextSummonTime && !isAttacking && !isCasting) {
+            if (Time.time >= nextSummonTime) {
                 animator.SetTrigger("Summon");
                 nextSummonTime = Time.time + 1f / summonRate;
             } 
-            if (distanceToPlayer > 1f && Time.time >= nextCastTime && !isAttacking && !isSummoning) {
+            if (distanceToPlayer > 1f && Time.time >= nextCastTime) {
                 animator.SetTrigger("Cast");
                 nextCastTime = Time.time + 1f / castRate;
             } 

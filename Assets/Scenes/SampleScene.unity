@@ -25840,7 +25840,7 @@ MonoBehaviour:
   attackDamage: 20
   attackRate: 1
   isAttacking: 0
-  castRate: 0.8
+  castRate: 0.2
   isCasting: 0
   summonRate: 0.05
   isSummoning: 0
