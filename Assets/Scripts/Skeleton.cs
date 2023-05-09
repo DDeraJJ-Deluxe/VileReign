@@ -74,7 +74,7 @@ public class Skeleton : MonoBehaviour {
 
             if (distanceToPlayer <= 1f) {
                 if (Time.time >= nextAttackTime) {
-                    Attack();
+                    animator.SetTrigger("Attack");
                     nextAttackTime = Time.time + 1f / attackRate;
                 }
             }
@@ -86,12 +86,6 @@ public class Skeleton : MonoBehaviour {
     }
 
     public void Attack() {
-        StartCoroutine(DelayForDamage());
-        animator.SetTrigger("Attack");
-    }
- 
-    private IEnumerator DelayForDamage() {
-        yield return new WaitForSeconds(0.5f);
         if (!isDead) {
             Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
 
@@ -99,6 +93,5 @@ public class Skeleton : MonoBehaviour {
                 player.GetComponent<PlayerHealth>().TakeDamage(attackDamage);
             }
         }
-        animator.ResetTrigger("Attack");
     }
 }

@@ -76,7 +76,6 @@ public class Zombie : MonoBehaviour {
             if (distanceToPlayer <= 1f) {
                 if (Time.time >= nextAttackTime) {
                     animator.SetTrigger("Attack");
-                    Attack();
                     nextAttackTime = Time.time + 1f / attackRate;
                 }
             }
@@ -88,18 +87,6 @@ public class Zombie : MonoBehaviour {
     }
 
     void Attack() {
-        StartCoroutine(DelayForDamage());
-        System.Random random = new System.Random();
-        int randomNumber = random.Next(0, 2);
-        if (randomNumber == 0) {
-            animator.SetTrigger("Attack");
-        } else {
-            animator.SetTrigger("Attack2");
-        }
-    }
- 
-    private IEnumerator DelayForDamage() {
-        yield return new WaitForSeconds(0.4f);
         if (!isDead) {
             Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
 
