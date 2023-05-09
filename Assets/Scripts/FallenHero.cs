@@ -17,7 +17,7 @@ public class FallenHero : MonoBehaviour {
     public bool isAttacking;
     public bool isFacingRight = false;
 
-    public float attackDistance = 16f;
+    public float attackDistance = 10f;
     public Transform attackPoint;
     public LayerMask playerLayer;
     public float attackRange = 0.5f;
