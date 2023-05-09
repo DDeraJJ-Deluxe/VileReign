@@ -59,7 +59,6 @@ public class VoidReaper : MonoBehaviour {
 
     void Die() {
         playerController.GainExp(expDropped);
-        playerHealth.Heal();
         isDead = true;
         animator.SetBool("isDead", true);
         boundary.GetComponent<Collider2D>().enabled = false;
