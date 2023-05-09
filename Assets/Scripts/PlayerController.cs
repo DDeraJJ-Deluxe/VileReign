@@ -7,6 +7,8 @@ using TMPro;
 
 public class PlayerController : MonoBehaviour {
 
+    public int gameOverScene = 3;
+
     public float walkSpeed = 6f;  // Player walk speed
 
     /* Variable jump height */
@@ -105,6 +107,7 @@ public class PlayerController : MonoBehaviour {
             rb.isKinematic = true;
             rb.velocity = Vector2.zero;
             coll.enabled = false;
+            SceneManager.LoadScene(gameOverScene);
         }
     }
 

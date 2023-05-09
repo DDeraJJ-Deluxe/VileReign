@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LordVileus : MonoBehaviour {
+
+    public int gameFinishedScene = 4;
 
     public Animator animator;
     public Rigidbody2D rb;
@@ -75,6 +78,7 @@ public class LordVileus : MonoBehaviour {
         GetComponent<Collider2D>().enabled = false;
         this.enabled = false;
         healthBar.gameObject.SetActive(false);
+        SceneManager.LoadScene(gameFinishedScene);
     }
 
     // Update is called once per frame
