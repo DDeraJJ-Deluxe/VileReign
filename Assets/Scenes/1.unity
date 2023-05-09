@@ -28584,6 +28584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 788284552}
+  projectilePrefab: {fileID: 4435851620215059542, guid: 4627d307a4278724fb143899abd412c5, type: 3}
   maxHealth: 750
   healthBar: {fileID: 406278593}
   moveSpeed: 3.25
@@ -28598,9 +28599,11 @@ MonoBehaviour:
   attackRange: 1.5
   attackDamage: 15
   attackRate: 1
+  castRate: 10
+  isCasting: 0
   expDropped: 250
   playerController: {fileID: 241801289}
-  playerHealth: {fileID: 0}
+  playerHealth: {fileID: 241801288}
   sr: {fileID: 788284551}
   boundary: {fileID: 1304077860}
   doubleJumpLocation: {fileID: 96130324}
