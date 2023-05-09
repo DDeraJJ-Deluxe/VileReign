@@ -10,7 +10,11 @@ public class PlayerHealth : MonoBehaviour {
     public int health;
     public int defense = 20;
 
+    public int potionCount = 5;
+
     [SerializeField] public TextMeshProUGUI defenseDisplay;
+
+    [SerializeField] public TextMeshProUGUI potionCountDisplay;
 
     public Animator animator;
 
@@ -24,8 +28,13 @@ public class PlayerHealth : MonoBehaviour {
 
     void Update() {
         defenseDisplay.text = defense.ToString();
+        potionCountDisplay.text = "x" + potionCount;
         if (gameObject.transform.position.y < -10 ){
             TakeDamage(maxHealth);
+        }
+        if ((Input.GetKeyDown(KeyCode.E) && potionCount > 0 && health != maxHealth)) {
+            Heal();
+            potionCount--;
         }
     }
 
