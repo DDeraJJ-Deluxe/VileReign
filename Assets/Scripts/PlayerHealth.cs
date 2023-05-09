@@ -24,6 +24,9 @@ public class PlayerHealth : MonoBehaviour {
 
     void Update() {
         defenseDisplay.text = defense.ToString();
+        if (gameObject.transform.position.y < -10 ){
+            TakeDamage(maxHealth);
+        }
     }
 
     public void TakeDamage(int damage) {
