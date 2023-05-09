@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Skeleton : MonoBehaviour
-{
+public class Skeleton : MonoBehaviour {
     public Animator animator;
 
     public int maxHealth = 60;
@@ -29,8 +28,9 @@ public class Skeleton : MonoBehaviour
     public PlayerController playerController;
 
 
-    void Start()
-    {
+    void Start() {
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }

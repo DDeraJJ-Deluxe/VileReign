@@ -36,6 +36,8 @@ public class Ghost : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         sr = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);

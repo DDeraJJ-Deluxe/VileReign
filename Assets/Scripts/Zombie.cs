@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Zombie : MonoBehaviour
-{
+public class Zombie : MonoBehaviour {
     public Animator animator;
 
     public int maxHealth = 80;
@@ -29,8 +28,9 @@ public class Zombie : MonoBehaviour
 
     public PlayerController playerController;
 
-    void Start()
-    {
+    void Start() {
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }

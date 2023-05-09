@@ -21,14 +21,14 @@ public class LordVileus : MonoBehaviour {
     public float attackDistance = 12f;
     public Transform attackPoint;
     public LayerMask playerLayer;
-    public float attackRange = 0.5f;
+    public float attackRange = 1f;
     public int attackDamage = 20;
 
     public float attackRate = 1f;
     float nextAttackTime = 0f;
     public bool isAttacking = false;
 
-    public float castRate = 2f;
+    public float castRate = 0.8f;
     private float nextCastTime = 0f;
     public bool isCasting = false;
 
@@ -83,17 +83,15 @@ public class LordVileus : MonoBehaviour {
         if (distanceToPlayer <= attackDistance) {
             healthBar.gameObject.SetActive(true);
             boundary.GetComponent<Collider2D>().enabled = true;
-            if (!isSummoning && !isCasting) {
-                animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
-                transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, moveSpeed * Time.deltaTime);
-            }
+            animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
+            transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, moveSpeed * Time.deltaTime);
             if (transform.position.x > playerTransform.position.x && !isAttacking) {
                 isFacingRight = false;
-                transform.localScale = new Vector3(3.6f, 3.6f, 3.6f);
+                transform.localScale = new Vector3(6.543f, 6.543f, 6.543f);
             }
             if (transform.position.x < playerTransform.position.x && !isAttacking) {
                 isFacingRight = true;
-                transform.localScale = new Vector3(-3.6f, 3.6f, 3.6f);
+                transform.localScale = new Vector3(-6.543f, 6.543f, 6.543f);
             }
             if (Time.time >= nextSummonTime && !isAttacking && !isCasting) {
                 animator.SetTrigger("Summon");
@@ -103,7 +101,7 @@ public class LordVileus : MonoBehaviour {
                 animator.SetTrigger("Cast");
                 nextCastTime = Time.time + 1f / castRate;
             } 
-            if (distanceToPlayer <= 1f && Time.time >= nextAttackTime && !isSummoning && !isCasting) {
+            if (distanceToPlayer <= 1f && Time.time >= nextAttackTime) {
                 animator.SetTrigger("Attack");
                 nextAttackTime = Time.time + 1f / attackRate;
             }
@@ -115,8 +113,6 @@ public class LordVileus : MonoBehaviour {
                 animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
                 transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, moveSpeed * Time.deltaTime);
             }
-        } else {
-            healthBar.gameObject.SetActive(false);
         }
     }
 

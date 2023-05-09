@@ -217,6 +217,9 @@ public class PlayerController : MonoBehaviour {
             if (enemy.GetComponent<FallenHero>() != null) {
                 enemy.GetComponent<FallenHero>().TakeDamage(attackDamage);
             }
+            if (enemy.GetComponent<LordVileus>() != null) {
+                enemy.GetComponent<LordVileus>().TakeDamage(attackDamage);
+            }
         }
     }
 

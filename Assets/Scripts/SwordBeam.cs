@@ -59,6 +59,9 @@ public class SwordBeam : MonoBehaviour
         }
         if (collision.gameObject.GetComponent<FallenHero>() != null) {
             collision.gameObject.GetComponent<FallenHero>().TakeDamage(projectileDamage);
+        }
+        if (collision.gameObject.GetComponent<LordVileus>() != null) {
+            collision.gameObject.GetComponent<LordVileus>().TakeDamage(projectileDamage);
         } 
         Destroy(gameObject);
     }

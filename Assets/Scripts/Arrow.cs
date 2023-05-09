@@ -12,16 +12,15 @@ public class Arrow : MonoBehaviour
     public float projectileCount;
     public int projectileDamage = 10;
 
-    public RangedSkeleton rangedSkeleton;
     public bool facingRight;
 
     // Start is called before the first frame update
     void Start() {
         projectileCount = projectileLife;
-        rangedSkeleton = GameObject.FindGameObjectWithTag("RangedSkeleton").GetComponent<RangedSkeleton>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        facingRight = rangedSkeleton.isFacingRight;
-        if (!facingRight) {
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Arrow"), LayerMask.NameToLayer("PlayersEnemies"), true);
+
+        if (playerTransform.position.x < transform.position.x) {
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         // Compute the direction from the arrow to the player
@@ -36,22 +35,12 @@ public class Arrow : MonoBehaviour
         projectileRb.velocity = direction * speed;
     }
 
-    // Update is called once per frame
     void Update() {
         projectileCount -= Time.deltaTime;
         if (projectileCount <= 0) {
             Destroy(gameObject);
         }
     }
-
-/*
-    private void FixedUpdate() {
-        if (facingRight) {
-            projectileRb.velocity = new Vector2(speed, projectileRb.velocity.y);
-        } else {
-            projectileRb.velocity = new Vector2(-speed, projectileRb.velocity.y);
-        }
-    }*/
 
     private void OnCollisionEnter2D(Collision2D collision) {
 

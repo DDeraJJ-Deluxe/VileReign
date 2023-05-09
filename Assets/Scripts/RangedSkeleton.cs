@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RangedSkeleton : MonoBehaviour
-{
+public class RangedSkeleton : MonoBehaviour {
     public Animator animator;
     public GameObject projectilePrefab;
     public Transform launchPoint;
@@ -29,6 +28,8 @@ public class RangedSkeleton : MonoBehaviour
 
 
     void Start() {
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
