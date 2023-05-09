@@ -25,9 +25,13 @@ public class FallenHero : MonoBehaviour {
     public float attackRate = 1f;
     private float nextAttackTime = 0f;
     
-    public float castRate = 10f;
-    private float nextCastTime = 0f;
-    public bool isCasting = false;
+    public float strikeRate = 0.1f;
+    private float nextStrikeTime = 0f;
+    public bool isStriking = false;
+    public int strikeDamage = 15;
+    public float strikeSpeed = 20f;
+    //private float strikeTimeRemaining = 0f;
+    //public float strikeDuration = 0.1f;
 
     private bool isDead = false;
     public int expDropped = 500;
@@ -90,102 +94,123 @@ public class FallenHero : MonoBehaviour {
         if (distanceToPlayer <= attackDistance) {
             healthBar.gameObject.SetActive(true);
             boundary.GetComponent<Collider2D>().enabled = true;
-            if (dodging) {
-                if (transform.position.x < playerTransform.position.x && !isAttacking) { 
-                    animator.SetFloat("Speed", Mathf.Abs(dodgeSpeed));
-                    rb.velocity = new Vector2(-dodgeSpeed, rb.velocity.y); // Apply dodge speed to player if dodging
-                }
-                if (transform.position.x > playerTransform.position.x && !isAttacking) {
-                    animator.SetFloat("Speed", Mathf.Abs(dodgeSpeed));
-                    rb.velocity = new Vector2(dodgeSpeed, rb.velocity.y);
-                }
-            } else {
-                if (!isDead) {
-                    if (transform.position.x > playerTransform.position.x && !isAttacking) {
-                        animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
-                        transform.localScale = new Vector3(-3.942011f, 3.942011f, 3.942011f);
-                        transform.position += Vector3.left * moveSpeed * Time.deltaTime;
-                    }
-                    if (transform.position.x < playerTransform.position.x && !isAttacking) {
-                        animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
-                        transform.localScale = new Vector3(3.942011f, 3.942011f, 3.942011f);
-                        transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-                    }
-                }
-            }
 
-            if (dodging) { // Duration during dodge
-                dodgeTimeRemaining -= Time.deltaTime;
-                if (dodgeTimeRemaining <= 0) {
-                    dodging = false;
-                }
-            }
-
-            if (distanceToPlayer <= 1f) { // <1
-                if (Time.time >= nextDodgeTime) {
-                    if (!isDead) { // If left shift key is pressed while moving horizontally
-                        dodging = true;
-                        dodgeTimeRemaining = dodgeDuration;
-                        StartCoroutine(FadeOutIn(dodgeDuration));
-                        nextDodgeTime = Time.time + 1f / dodgeRate;
-                    }
-                }
-                if (Time.time >= nextAttackTime) {
-                    animator.SetTrigger("Attack");
-                    nextAttackTime = Time.time + 1f / attackRate;
-                }
-            }
-            /*
             if ((float)currentHealth <= (float)(maxHealth * 0.5f)) {
-                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-                animator.SetFloat("Speed", 0);
-                if (transform.position.x > playerTransform.position.x && !isAttacking) {
+                if (transform.position.x > playerTransform.position.x && !isAttacking && !isStriking) {
                     transform.localScale = new Vector3(3.6f, 3.6f, 3.6f);
                 }
-                if (transform.position.x < playerTransform.position.x && !isAttacking) {
+                if (transform.position.x < playerTransform.position.x && !isAttacking && !isStriking) {
                     transform.localScale = new Vector3(-3.6f, 3.6f, 3.6f);
                 }
-                if (Time.time >= nextCastTime) {
-                    animator.SetTrigger("Cast");
-                    nextCastTime = Time.time + 1f / castRate;
+                if (Time.time >= nextStrikeTime) {
+                    isStriking = true;
+                    nextStrikeTime = Time.time + 1f / strikeRate;
                 } 
-                if (!isCasting) {
-                    if (transform.position.x > playerTransform.position.x && !isAttacking) {
-                        animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
-                        transform.localScale = new Vector3(3.6f, 3.6f, 3.6f);
-                        transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+                if (isStriking) { // Duration during dodge
+                    if (transform.position.x < playerTransform.position.x) { 
+                        animator.SetFloat("Speed", Mathf.Abs(strikeSpeed * 3f));
+                        rb.velocity = new Vector2(strikeSpeed * 3f, rb.velocity.y);
                     }
-                    if (transform.position.x < playerTransform.position.x && !isAttacking) {
-                        animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
-                        transform.localScale = new Vector3(-3.6f, 3.6f, 3.6f);
-                        transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+                    if (transform.position.x > playerTransform.position.x) {
+                        animator.SetFloat("Speed", Mathf.Abs(strikeSpeed * 3f));
+                        rb.velocity = new Vector2(-strikeSpeed * 3f, rb.velocity.y);
                     }
-                    if (distanceToPlayer <= 2.5f) { // <1
+                    StartCoroutine(DelayForStriking());
+                }
+                if (!isStriking) {
+                    if (dodging) {
+                        if (transform.position.x < playerTransform.position.x && !isAttacking) { 
+                            animator.SetFloat("Speed", Mathf.Abs(dodgeSpeed));
+                            rb.velocity = new Vector2(-dodgeSpeed, rb.velocity.y); // Apply dodge speed to player if dodging
+                        }
+                        if (transform.position.x > playerTransform.position.x && !isAttacking) {
+                            animator.SetFloat("Speed", Mathf.Abs(dodgeSpeed));
+                            rb.velocity = new Vector2(dodgeSpeed, rb.velocity.y);
+                        }
+                    } else {
+                        if (!isDead) {
+                            if (transform.position.x > playerTransform.position.x && !isAttacking) {
+                                animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
+                                transform.localScale = new Vector3(-3.942011f, 3.942011f, 3.942011f);
+                                transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+                            }
+                            if (transform.position.x < playerTransform.position.x && !isAttacking) {
+                                animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
+                                transform.localScale = new Vector3(3.942011f, 3.942011f, 3.942011f);
+                                transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+                            }
+                        }
+                    }
+
+                    if (dodging) { // Duration during dodge
+                        dodgeTimeRemaining -= Time.deltaTime;
+                        if (dodgeTimeRemaining <= 0) {
+                            dodging = false;
+                        }
+                    }
+
+                    if (distanceToPlayer <= 1f) { // <1
+                        if (Time.time >= nextDodgeTime) {
+                            if (!isDead) { // If left shift key is pressed while moving horizontally
+                                dodging = true;
+                                dodgeTimeRemaining = dodgeDuration;
+                                StartCoroutine(FadeOutIn(dodgeDuration));
+                                nextDodgeTime = Time.time + 1f / dodgeRate;
+                            }
+                        }
                         if (Time.time >= nextAttackTime) {
-                            Attack();
+                            animator.SetTrigger("Attack");
                             nextAttackTime = Time.time + 1f / attackRate;
                         }
                     }
                 }
             } else {
-                if (transform.position.x > playerTransform.position.x && !isAttacking) {
-                    animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
-                    transform.localScale = new Vector3(3.6f, 3.6f, 3.6f);
-                    transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+                if (dodging) {
+                    if (transform.position.x < playerTransform.position.x && !isAttacking) { 
+                        animator.SetFloat("Speed", Mathf.Abs(dodgeSpeed));
+                        rb.velocity = new Vector2(-dodgeSpeed, rb.velocity.y); // Apply dodge speed to player if dodging
+                    }
+                    if (transform.position.x > playerTransform.position.x && !isAttacking) {
+                        animator.SetFloat("Speed", Mathf.Abs(dodgeSpeed));
+                        rb.velocity = new Vector2(dodgeSpeed, rb.velocity.y);
+                    }
+                } else {
+                    if (!isDead) {
+                        if (transform.position.x > playerTransform.position.x && !isAttacking) {
+                            animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
+                            transform.localScale = new Vector3(-3.942011f, 3.942011f, 3.942011f);
+                            transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+                        }
+                        if (transform.position.x < playerTransform.position.x && !isAttacking) {
+                            animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
+                            transform.localScale = new Vector3(3.942011f, 3.942011f, 3.942011f);
+                            transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+                        }
+                    }
                 }
-                if (transform.position.x < playerTransform.position.x && !isAttacking) {
-                    animator.SetFloat("Speed", Mathf.Abs(moveSpeed));
-                    transform.localScale = new Vector3(-3.6f, 3.6f, 3.6f);
-                    transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+
+                if (dodging) { // Duration during dodge
+                    dodgeTimeRemaining -= Time.deltaTime;
+                    if (dodgeTimeRemaining <= 0) {
+                        dodging = false;
+                    }
                 }
-                if (distanceToPlayer <= 2.5f) { // <1
+
+                if (distanceToPlayer <= 1f) { // <1
+                    if (Time.time >= nextDodgeTime) {
+                        if (!isDead) { // If left shift key is pressed while moving horizontally
+                            dodging = true;
+                            dodgeTimeRemaining = dodgeDuration;
+                            StartCoroutine(FadeOutIn(dodgeDuration));
+                            nextDodgeTime = Time.time + 1f / dodgeRate;
+                        }
+                    }
                     if (Time.time >= nextAttackTime) {
-                        Attack();
+                        animator.SetTrigger("Attack");
                         nextAttackTime = Time.time + 1f / attackRate;
                     }
                 }
             }
-            */
         }
         if (distanceToPlayer > attackDistance) {
             healthBar.gameObject.SetActive(false);
@@ -209,8 +234,21 @@ public class FallenHero : MonoBehaviour {
         isAttacking = false;
     }
 
+    private IEnumerator DelayForStriking() {
+        yield return new WaitForSeconds(0.1f);
+        isStriking = false;
+    }
+
     void RevealSwordBeam() {
         Instantiate(swordBeamPrefab, swordBeamLocation.position, Quaternion.identity);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (isStriking) {
+            if (collision.gameObject.GetComponent<PlayerHealth>() != null) {
+                collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(strikeDamage);
+            } 
+        }
     }
 
     /* Fades out and in for a given duration */

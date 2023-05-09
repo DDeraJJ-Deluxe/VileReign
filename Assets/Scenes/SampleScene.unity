@@ -25660,8 +25660,8 @@ MonoBehaviour:
   buttonTime: 0.5
   jumpHeight: 3
   cancelRate: 100
-  unlockedDoubleJump: 0
-  unlockedSwordBeam: 0
+  unlockedDoubleJump: 1
+  unlockedSwordBeam: 1
   groundLayer:
     serializedVersion: 2
     m_Bits: 648
@@ -47016,8 +47016,10 @@ MonoBehaviour:
   attackRange: 0.5
   attackDamage: 20
   attackRate: 1
-  castRate: 10
-  isCasting: 0
+  strikeRate: 0.1
+  isStriking: 0
+  strikeDamage: 15
+  strikeSpeed: 20
   expDropped: 500
   dodging: 0
   dodgeDuration: 0.125
