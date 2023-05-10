@@ -21,6 +21,15 @@ public class PlayerHealth : MonoBehaviour {
     public HealthBar healthBar;
     public PlayerController player;
 
+    public AudioClip[] music; 
+    private static AudioSource audioClips;
+    public int musicIndex = 4;
+    private static int currentIndex;
+
+    void Awake() {
+        audioClips = GetComponent<AudioSource>();
+    }
+
     void Start() {
         health = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
@@ -65,6 +74,10 @@ public class PlayerHealth : MonoBehaviour {
     }
 
     void Die() {
+        audioClips.Stop();
+        audioClips.clip = music[musicIndex];
+        audioClips.Play();
+        currentIndex = musicIndex;
         animator.SetBool("isDead", true);
         player.isDead = true;
         this.enabled = false;

@@ -21,7 +21,7 @@ public class Level : MonoBehaviour
 
     void Start() {
         slider.value = 0;
-        slider.maxValue = 100;
+        slider.maxValue = 50;
     }
 
     void Update() {
@@ -50,7 +50,7 @@ public class Level : MonoBehaviour
                 playerHealth.IncreaseDefense(5);
                 exp = (int)additionalExp;
                 currentExp = 0;
-                slider.maxValue += 50;
+                slider.maxValue += 25;
                 slider.DOValue(0, 0.5f);
                 yield return new WaitForSeconds(0.5f);
                 slider.DOValue(exp, 0.5f);
