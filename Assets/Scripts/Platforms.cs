@@ -5,7 +5,7 @@ using UnityEngine;
 public class Platforms : MonoBehaviour
 {
     private PlatformEffector2D effector;
-    private float waitTime = 0.5f;  
+    private float waitTime = 0.3f;  
     void Start() {
         effector = GetComponent<PlatformEffector2D>();
     }
