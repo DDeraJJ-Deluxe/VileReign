@@ -13,11 +13,13 @@ public class Arrow : MonoBehaviour
     public int projectileDamage = 10;
 
     public bool facingRight;
+    Vector2 direction;
 
     // Start is called before the first frame update
     void Start() {
         projectileCount = projectileLife;
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Arrow"), LayerMask.NameToLayer("ArcherCollision"), true);
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Arrow"), LayerMask.NameToLayer("PlayersEnemies"), true);
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Arrow"), LayerMask.NameToLayer("Ghost"), true);
 
@@ -25,7 +27,7 @@ public class Arrow : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         // Compute the direction from the arrow to the player
-        Vector2 direction = (playerTransform.position - transform.position).normalized;
+        direction = (playerTransform.position - transform.position).normalized;
         if (playerTransform.position.y < transform.position.y) {
             direction += Vector2.up * 0.3f;
             direction = direction.normalized;
@@ -37,6 +39,9 @@ public class Arrow : MonoBehaviour
     }
 
     void Update() {
+        direction = projectileRb.velocity.normalized;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         projectileCount -= Time.deltaTime;
         if (projectileCount <= 0) {
             Destroy(gameObject);

@@ -212,10 +212,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -315,7 +315,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bc91f3e2c2800e144bb56406071dc534, type: 3}
   - {fileID: 8300000, guid: 0ba1e1c090d1885499a234f81b0da7fe, type: 3}
   - {fileID: 8300000, guid: ef75ae336a1b34d42b1ee84b4986b4ce, type: 3}
-  musicIndex: 3
+  musicIndex: -1
 --- !u!4 &9940105 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2926833940389448522, guid: 3278fa2d0d242ca49abc5c94b249d382, type: 3}
@@ -25709,10 +25709,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -25839,13 +25839,6 @@ MonoBehaviour:
   animator: {fileID: 241801292}
   healthBar: {fileID: 1813847991}
   player: {fileID: 241801289}
-  music:
-  - {fileID: 8300000, guid: 560324b66d20f9246b563b2bad1482a4, type: 3}
-  - {fileID: 8300000, guid: 37f54aa07d1a3d44e9afd01872d9f69b, type: 3}
-  - {fileID: 8300000, guid: bc91f3e2c2800e144bb56406071dc534, type: 3}
-  - {fileID: 8300000, guid: 0ba1e1c090d1885499a234f81b0da7fe, type: 3}
-  - {fileID: 8300000, guid: ef75ae336a1b34d42b1ee84b4986b4ce, type: 3}
-  musicIndex: 4
 --- !u!114 &241801289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25869,7 +25862,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 648
   feetPosition: {fileID: 723114821}
-  groundCheckCircle: 0.3
+  groundCheckCircle: 0.18
   dodging: 0
   dodgeDuration: 0.125
   dodgeSpeed: 24
@@ -26324,7 +26317,7 @@ MonoBehaviour:
   isAttacking: 0
   castRate: 0.2
   isCasting: 0
-  summonRate: 0.05
+  summonRate: 0.067
   isSummoning: 0
   expDropped: 1000
   playerController: {fileID: 241801289}
@@ -26338,6 +26331,13 @@ MonoBehaviour:
   enemySpawnerA: {fileID: 283353212}
   enemySpawnerB: {fileID: 323136165}
   enemySpawnerC: {fileID: 1528708245}
+  music:
+  - {fileID: 8300000, guid: 560324b66d20f9246b563b2bad1482a4, type: 3}
+  - {fileID: 8300000, guid: 37f54aa07d1a3d44e9afd01872d9f69b, type: 3}
+  - {fileID: 8300000, guid: bc91f3e2c2800e144bb56406071dc534, type: 3}
+  - {fileID: 8300000, guid: 0ba1e1c090d1885499a234f81b0da7fe, type: 3}
+  - {fileID: 8300000, guid: ef75ae336a1b34d42b1ee84b4986b4ce, type: 3}
+  musicIndex: 3
 --- !u!50 &296895010
 Rigidbody2D:
   serializedVersion: 4
@@ -26827,6 +26827,122 @@ Transform:
   m_Father: {fileID: 1441913636}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &325922712
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 325922713}
+  - component: {fileID: 325922714}
+  m_Layer: 18
+  m_Name: ArcherPlatformColl (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &325922713
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325922712}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.1, y: 0.164, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2080487239}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &325922714
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325922712}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.1396147, y: -0.02601856}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.100357294, y: 0.4219507}
+  m_EdgeRadius: 0
+--- !u!1 &326610372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 326610373}
+  - component: {fileID: 326610374}
+  m_Layer: 18
+  m_Name: ArcherPlatformColl (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &326610373
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326610372}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 20.001001, y: 5.666, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2080487239}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &326610374
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326610372}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.1396147, y: -0.02601856}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.100357294, y: 0.4219507}
+  m_EdgeRadius: 0
 --- !u!1001 &337924035
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27329,7 +27445,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bc91f3e2c2800e144bb56406071dc534, type: 3}
   - {fileID: 8300000, guid: 0ba1e1c090d1885499a234f81b0da7fe, type: 3}
   - {fileID: 8300000, guid: ef75ae336a1b34d42b1ee84b4986b4ce, type: 3}
-  musicIndex: 2
+  musicIndex: -1
 --- !u!82 &398174730
 AudioSource:
   m_ObjectHideFlags: 0
@@ -27341,10 +27457,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -27878,10 +27994,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -28423,7 +28539,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 2.75
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -28447,7 +28563,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.257347, y: 13.688311, z: -10}
+  m_LocalPosition: {x: -13.449173, y: 6.5853276, z: -10}
   m_LocalScale: {x: 0.8, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28574,7 +28690,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6890997437789696481, guid: 0299350858f1d1144ae9047e442499a1, type: 3}
       propertyPath: attackDistance
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6890997437789696482, guid: 0299350858f1d1144ae9047e442499a1, type: 3}
       propertyPath: m_Name
@@ -29276,10 +29392,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -30568,10 +30684,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -30864,6 +30980,13 @@ MonoBehaviour:
   boundary: {fileID: 1304077860}
   doubleJumpLocation: {fileID: 96130324}
   doubleJumpPrefab: {fileID: 7234273056930488535, guid: 4ead2679cb4a99846a60b1f1ca9c0e67, type: 3}
+  music:
+  - {fileID: 8300000, guid: 560324b66d20f9246b563b2bad1482a4, type: 3}
+  - {fileID: 8300000, guid: 37f54aa07d1a3d44e9afd01872d9f69b, type: 3}
+  - {fileID: 8300000, guid: bc91f3e2c2800e144bb56406071dc534, type: 3}
+  - {fileID: 8300000, guid: 0ba1e1c090d1885499a234f81b0da7fe, type: 3}
+  - {fileID: 8300000, guid: ef75ae336a1b34d42b1ee84b4986b4ce, type: 3}
+  musicIndex: 2
 --- !u!82 &788284555
 AudioSource:
   m_ObjectHideFlags: 0
@@ -30875,10 +30998,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -30960,25 +31083,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &788284556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 788284548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0d0c4f7c6037784494363a23241c758, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  music:
-  - {fileID: 8300000, guid: 560324b66d20f9246b563b2bad1482a4, type: 3}
-  - {fileID: 8300000, guid: 37f54aa07d1a3d44e9afd01872d9f69b, type: 3}
-  - {fileID: 8300000, guid: bc91f3e2c2800e144bb56406071dc534, type: 3}
-  - {fileID: 8300000, guid: 0ba1e1c090d1885499a234f81b0da7fe, type: 3}
-  - {fileID: 8300000, guid: ef75ae336a1b34d42b1ee84b4986b4ce, type: 3}
-  musicIndex: 2
 --- !u!1 &788797348
 GameObject:
   m_ObjectHideFlags: 0
@@ -32313,10 +32417,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -33196,10 +33300,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -33899,7 +34003,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6890997437789696481, guid: 0299350858f1d1144ae9047e442499a1, type: 3}
       propertyPath: attackDistance
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6890997437789696482, guid: 0299350858f1d1144ae9047e442499a1, type: 3}
       propertyPath: m_Name
@@ -47175,10 +47279,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -47278,7 +47382,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bc91f3e2c2800e144bb56406071dc534, type: 3}
   - {fileID: 8300000, guid: 0ba1e1c090d1885499a234f81b0da7fe, type: 3}
   - {fileID: 8300000, guid: ef75ae336a1b34d42b1ee84b4986b4ce, type: 3}
-  musicIndex: 2
+  musicIndex: -1
 --- !u!1001 &1403314883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47787,10 +47891,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -47927,7 +48031,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1529454668}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.09, y: -0.064, z: 0}
+  m_LocalPosition: {x: 0.061, y: -0.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48828,6 +48932,64 @@ RectTransform:
   m_AnchoredPosition: {x: 50, y: 50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1646723380
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1646723381}
+  - component: {fileID: 1646723382}
+  m_Layer: 18
+  m_Name: ArcherPlatformColl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1646723381
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646723380}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.167, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2080487239}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1646723382
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646723380}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.1396147, y: -0.02601856}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.100357294, y: 0.4219507}
+  m_EdgeRadius: 0
 --- !u!1 &1686231319
 GameObject:
   m_ObjectHideFlags: 0
@@ -50458,6 +50620,64 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1784151666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1784151667}
+  - component: {fileID: 1784151668}
+  m_Layer: 18
+  m_Name: ArcherPlatformColl (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1784151667
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784151666}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 24.1011, y: 5.666, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2080487239}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1784151668
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784151666}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.1396147, y: -0.02601856}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.100357294, y: 0.4219507}
+  m_EdgeRadius: 0
 --- !u!1 &1790714642
 GameObject:
   m_ObjectHideFlags: 0
@@ -52751,6 +52971,13 @@ MonoBehaviour:
   boundary: {fileID: 168117195}
   swordBeamLocation: {fileID: 288627119}
   swordBeamPrefab: {fileID: 8960238862165558275, guid: e945ec3fc074ab648bf6ef73046cb6af, type: 3}
+  music:
+  - {fileID: 8300000, guid: 560324b66d20f9246b563b2bad1482a4, type: 3}
+  - {fileID: 8300000, guid: 37f54aa07d1a3d44e9afd01872d9f69b, type: 3}
+  - {fileID: 8300000, guid: bc91f3e2c2800e144bb56406071dc534, type: 3}
+  - {fileID: 8300000, guid: 0ba1e1c090d1885499a234f81b0da7fe, type: 3}
+  - {fileID: 8300000, guid: ef75ae336a1b34d42b1ee84b4986b4ce, type: 3}
+  musicIndex: 2
 --- !u!82 &2049695518
 AudioSource:
   m_ObjectHideFlags: 0
@@ -53243,6 +53470,41 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.085926}
   m_EdgeRadius: 0
+--- !u!1 &2080487238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2080487239}
+  m_Layer: 0
+  m_Name: ArcherPlatforms
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2080487239
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080487238}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.81, y: 1.44, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1646723381}
+  - {fileID: 325922713}
+  - {fileID: 326610373}
+  - {fileID: 1784151667}
+  m_Father: {fileID: 0}
+  m_RootOrder: 28
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2086735626
 PrefabInstance:
   m_ObjectHideFlags: 0

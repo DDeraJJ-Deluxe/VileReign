@@ -21,7 +21,7 @@ public class Level : MonoBehaviour
 
     void Start() {
         slider.value = 0;
-        slider.maxValue = 50;
+        slider.maxValue = 75;
     }
 
     void Update() {

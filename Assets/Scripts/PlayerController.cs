@@ -81,6 +81,8 @@ public class PlayerController : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>(); // Get the player's rigidbody component
         coll = GetComponent<Collider2D>(); // Get the player's collider object
         sr = GetComponent<SpriteRenderer>();
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("ArcherCollision"), true);
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("PlayerDodge"), LayerMask.NameToLayer("ArcherCollision"), true);
     }
 
     void Update() {

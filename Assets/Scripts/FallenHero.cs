@@ -54,7 +54,15 @@ public class FallenHero : MonoBehaviour {
 
     Rigidbody2D rb;
 
+    public AudioClip[] music; 
+    private static AudioSource audioClips;
+    public int musicIndex;
+    private static int currentIndex;
+    private bool playedMusic = false;
+    private float fadeDuration = 1.0f;
+
     void Start() {
+        audioClips = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody2D>();
         healthBar.gameObject.SetActive(false);
         boundary.GetComponent<Collider2D>().enabled = false;
@@ -75,6 +83,7 @@ public class FallenHero : MonoBehaviour {
     }
 
     void Die() {
+        StartCoroutine(FadeOut());
         playerController.GainExp(expDropped);
         isDead = true;
         animator.SetBool("isDead", true);
@@ -91,6 +100,13 @@ public class FallenHero : MonoBehaviour {
     void Update() {
         float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
         if (distanceToPlayer <= attackDistance) {
+            attackDistance = 20f;
+            if (!playedMusic) {
+                audioClips.clip = music[musicIndex];
+                StartCoroutine(FadeIn());
+                currentIndex = musicIndex;
+                playedMusic = true;
+            }
             healthBar.gameObject.SetActive(true);
             boundary.GetComponent<Collider2D>().enabled = true;
 
@@ -279,5 +295,22 @@ public class FallenHero : MonoBehaviour {
         finalColor.a = 1f;
         sr.color = finalColor; // Apply the final color to the sprite
         isInvincible = false;
+    }
+
+    IEnumerator FadeOut() {
+        while (audioClips.volume > 0) {
+            audioClips.volume -= Time.deltaTime / fadeDuration;
+            yield return null;
+        }
+        audioClips.Stop();
+    }
+
+    IEnumerator FadeIn() {
+        audioClips.clip = music[musicIndex];
+        audioClips.Play();
+        while (audioClips.volume < 1) {
+            audioClips.volume += Time.deltaTime / fadeDuration;
+            yield return null;
+        }
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6600545359477323093}
   - component: {fileID: 6600545359477323092}
   - component: {fileID: 6600545359477323179}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: SwordBeam
   m_TagString: Untagged
   m_Icon: {fileID: 0}

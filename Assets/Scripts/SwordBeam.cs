@@ -18,6 +18,7 @@ public class SwordBeam : MonoBehaviour
     void Start() {
         projectileCount = projectileLife;
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("SwordBeam"), LayerMask.NameToLayer("ArcherCollision"), true);
         facingRight = playerController.isFacingRight;
         if (!facingRight) {
             transform.rotation = Quaternion.Euler(0, 180, 0);
